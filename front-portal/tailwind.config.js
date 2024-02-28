@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {},
+    colors: {
+      magentapb : '#e82a7a',
+      turquezapb : '#003660',
+    },
   },
   plugins: [],
 }
