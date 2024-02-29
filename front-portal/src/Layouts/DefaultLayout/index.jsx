@@ -1,4 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
+import { faUsers, faTableColumns, faArrowRightFromBracket, faNewspaper, faCakeCandles, faFile } from '@fortawesome/free-solid-svg-icons'
+
 
 export default function DefaultLayout() {
   return (
@@ -19,7 +23,7 @@ export default function DefaultLayout() {
                     className="flex items-center gap-4 p-2 hover:bg-gray-200 transition-colors rounded-lg"
                   >
                     <FontAwesomeIcon
-                      icon={faUsers}
+                      icon= {faUsers}
                       className='h-5 w-5 text-[#ffffff]'
                     />
                     <span className='text-[#ffffff]'>
@@ -45,7 +49,7 @@ export default function DefaultLayout() {
 
                 <li>
                   <Link
-                    to="/reports"
+                    to="/newspaper"
                     className="flex items-center gap-4 p-2 hover:bg-gray-200 transition-colors rounded-lg"
                   >
                     <FontAwesomeIcon
@@ -151,7 +155,7 @@ export default function DefaultLayout() {
                 <li>
                   <a href="#"
                     className="flex items-center gap-4 p-2 text-gray-500 hover:bg-gray-200 transition-colors rounded-lg"
-                    onClick={logout}
+                    // onClick={logout}
                   >
                     <FontAwesomeIcon
                       icon={faArrowRightFromBracket}
@@ -167,7 +171,7 @@ export default function DefaultLayout() {
               <div className="flex items-center gap-4 pt-4 border-t border-[#ffffff]">
                 <div>
                   <h3 className="font-bold text-gray-900 text-[#ffffff]">
-                     {user?.name}
+                     {/* {user?.name} */}
                   </h3>
                 </div>
               </div>
