@@ -1,10 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Navigate, Outlet } from 'react-router-dom'
 import { faUsers, faTableColumns, faArrowRightFromBracket, faNewspaper, faCakeCandles, faFile } from '@fortawesome/free-solid-svg-icons'
+import { useStateContext } from '../../Contexts/ContextProvider'
 
 
 export default function DefaultLayout() {
+
+  const {user, token, setUser, setToken} = useStateContext()
+
+  if(!token){
+    return <Navigate to="/login/"/>
+  }
+
   return (
     <div className='h-screen flex w-full'>
         <sidebar className="flex flex-col justify-between gap-8 bg-gray-100 min-h-screen max-h-screen w-60 p-4 border-r-4 border-magentapb bg-turquezapb">
