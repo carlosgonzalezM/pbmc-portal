@@ -8,6 +8,7 @@ import DefaultLayout from './Layouts/DefaultLayout'
 import Users from './Pages/Users'
 import Dashboard from './Pages/Dashboard'
 import Newspaper from './Pages/Newspaper'
+import ReportForm from './Pages/ReportFrom'
 
 const  router = createBrowserRouter([
     {
@@ -52,7 +53,21 @@ const  router = createBrowserRouter([
             {
                 path: '/newspaper',
                 element: <Newspaper/>
-            }
+            },
+            {
+                path: '/newspaper/new',
+                element: <ReportForm
+                key="reportCreate"
+                />
+            },
+            {
+                path: '/newspaper/:id',
+                element: <ReportForm
+                key="reportUpdate"
+                />
+            },
+            
+
         ]
     }
 ])

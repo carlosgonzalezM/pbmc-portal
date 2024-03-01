@@ -22,6 +22,7 @@ class StoreReportRequest extends FormRequest
     public function rules(): array
     {
             return [
+                'user_id' => [ 'required', 'numeric'],
                 'title' => ['required', 'string'],
                 'description' => ['required', 'string'],
                 'image' => ['required', 'image', 'mimes:png,jpg, gif, svg'],

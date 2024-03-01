@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, Navigate, Outlet } from 'react-router-dom'
 import { faUsers, faTableColumns, faArrowRightFromBracket, faNewspaper, faCakeCandles, faFile } from '@fortawesome/free-solid-svg-icons'
 import { useStateContext } from '../../Contexts/ContextProvider'
+import axiosClient from '../../Config/axios-client'
 
 
 export default function DefaultLayout() {
@@ -12,6 +13,16 @@ export default function DefaultLayout() {
   if(!token){
     return <Navigate to="/login/"/>
   }
+
+  const onLogout = (ev) => {
+    ev.preventDefault()
+
+   axiosClient.post('/logout')
+    .then(()=>{
+        setUser({})
+        setToken(null)
+    })
+}
 
   return (
     <div className='h-screen flex w-full'>
@@ -163,7 +174,7 @@ export default function DefaultLayout() {
                 <li>
                   <a href="#"
                     className="flex items-center gap-4 p-2 text-gray-500 hover:bg-gray-200 transition-colors rounded-lg"
-                    // onClick={logout}
+                    onClick={onLogout}
                   >
                     <FontAwesomeIcon
                       icon={faArrowRightFromBracket}
@@ -179,7 +190,7 @@ export default function DefaultLayout() {
               <div className="flex items-center gap-4 pt-4 border-t border-[#ffffff]">
                 <div>
                   <h3 className="font-bold text-gray-900 text-[#ffffff]">
-                     {/* {user?.name} */}
+                    {user.name}
                   </h3>
                 </div>
               </div>

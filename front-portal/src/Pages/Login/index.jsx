@@ -1,5 +1,7 @@
 import React, { createRef, useState } from 'react'
 import { Link } from 'react-router-dom';
+import axiosClient from '../../Config/axios-client';
+import { useStateContext } from '../../Contexts/ContextProvider';
 
 export default function Login() {
 
@@ -7,19 +9,41 @@ export default function Login() {
     const passwordRef = createRef();
 
     const [errores, setErrores] = useState([]);
+    const {setUser, setToken} = useStateContext()
 
     // const {login} =  useAuth({
     //     middleware: 'guest',
     //     url: '/users'
     // });
 
-    const onSubmit = async e => {
-        e.preventDefault();
+    const onSubmit =  (ev) => {
+        ev.preventDefault();
 
         const datos = {
             email: emailRef.current.value,
             password: passwordRef.current.value,
           }
+        
+        setErrores(null)
+
+        axiosClient.post('/login', datos)
+          .then(({data})=>{
+            setUser(data.user)
+            setToken(data.token)
+          })
+          .catch(err=>{
+            const response = err.response;
+                if(response && response.status === 422){
+                    if(response.data.errors){
+                        setErrores(response.data.errors)
+                    }else{
+                        setErrores({
+                            email: [response.data.message]
+                        })
+                    }
+
+                }
+          })
     
         //   login(datos, setErrores)
           

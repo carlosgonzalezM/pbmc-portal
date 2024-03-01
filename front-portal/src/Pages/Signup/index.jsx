@@ -1,4 +1,6 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
+import { useStateContext } from '../../Contexts/ContextProvider';
+import axiosClient from '../../Config/axios-client';
 
 export default function Signup() {
     
@@ -8,9 +10,9 @@ export default function Signup() {
     const passwordRef = useRef();
     const passwordConfirmationRef = useRef();
   
-    // const {setUser, setToken} = useStateContext();
+    const {setUser, setToken} = useStateContext()
   
-    // const [errores, setErrores] = useState([]);
+    const [errors, setErrors] = useState(null)
   
     // const {signup} = useAuth({middleware: 'guest', url:'/users'})
   
@@ -24,6 +26,20 @@ export default function Signup() {
         password: passwordRef.current.value,
         password_confirmation: passwordConfirmationRef.current.value,
       }
+
+      axiosClient.post('signup', datos)
+        .then(({data})=>{
+            setUser(data.user)
+            setToken(data.token)
+        })
+        .catch(err => {
+            const response = err.response;
+            if(response && response.status === 422){
+                setErrors(response.data.errors)
+            }
+        })
+
+      
     //   signup(datos, setErrores)
     }
   
