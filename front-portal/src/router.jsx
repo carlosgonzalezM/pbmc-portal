@@ -8,7 +8,7 @@ import DefaultLayout from './Layouts/DefaultLayout'
 import Users from './Pages/Users'
 import Dashboard from './Pages/Dashboard'
 import Newspaper from './Pages/Newspaper'
-import ReportForm from './Pages/ReportFrom'
+import ReportForm from './Pages/ReportForm'
 
 const  router = createBrowserRouter([
     {
