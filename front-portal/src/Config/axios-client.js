@@ -8,6 +8,7 @@ axiosClient.interceptors.request.use((config)=>{
 
     const token = localStorage.getItem('ACCESS_TOKEN')
     config.headers.Authorization = `Bearer ${token}`
+    config.headers["Content-Type"]= 'multipart/form-data'
     return config;
 })
 

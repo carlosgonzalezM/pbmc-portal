@@ -25,7 +25,7 @@ class StoreReportRequest extends FormRequest
                 'user_id' => [ 'required', 'numeric'],
                 'title' => ['required', 'string'],
                 'description' => ['required', 'string'],
-                'image' => ['required', 'image', 'mimes:png,jpg, gif, svg'],
+                'image' => ['required', 'image'],
                 'document' => ['nullable', 'file', 'mimes:pdf, doc, docx']
             ];
     }

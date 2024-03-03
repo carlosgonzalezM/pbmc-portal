@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
 import { useStateContext } from '../../Contexts/ContextProvider';
@@ -10,7 +10,7 @@ export default function ReportForm() {
   const {user} = useStateContext()
   const [noticia, SetNoticia] = useState({
     id: null,
-    id_user: user.id,
+    user_id: user.id,
     title: '',
     description: '',
     image: '',
@@ -30,7 +30,7 @@ export default function ReportForm() {
         .catch(()=>{
             setLoading(false)
         })
-    }, [])
+    }, [id])
   }
 
   const onSubmit = ev => {
@@ -48,6 +48,7 @@ export default function ReportForm() {
             }
         })
     }else{
+      console.log(noticia)
       axiosClient.post('/reports', noticia)
       .then(()=>{
         navigate('/newspaper')
@@ -107,11 +108,34 @@ export default function ReportForm() {
         {
           !loading && (
             <form onSubmit={onSubmit}>
-              <input className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" value={noticia.title} onChange={ev => SetNoticia({...noticia, title: ev.target.value})} placeholder='Titulo'/>
-              <input className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" value={noticia.description} onChange={ev => SetNoticia({...noticia, description: ev.target.value})} placeholder='descripción'/>
-              <input className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" type='file' onChange={handleImageChange} placeholder='imagen'/>
-              <input className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" type='file' onChange={handleDocumentChange} placeholder='Documento'/>
-              <button className="rounded-lg border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]" >Guardar</button>
+              <input 
+                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                value={noticia.title} 
+                onChange={ev => SetNoticia({...noticia, title: ev.target.value})} 
+                placeholder='Titulo'
+              />
+              <input 
+                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                value={noticia.description} 
+                onChange={ev => SetNoticia({...noticia, description: ev.target.value})} 
+                placeholder='descripción'
+              />
+              <input 
+                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                type='file' 
+                onChange={handleImageChange} 
+                placeholder='imagen'
+              />
+              <input 
+                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                type='file' 
+                onChange={handleDocumentChange} 
+                placeholder='Documento'
+              />
+              <button 
+                className="rounded-lg border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]">
+                Guardar
+              </button>
             </form>
           )
         }
