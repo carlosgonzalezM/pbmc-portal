@@ -22,6 +22,7 @@ class StoreBirthdayRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'user_id' => [ 'required', 'numeric'],
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'area' => ['required', 'string'],

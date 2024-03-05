@@ -3,63 +3,58 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
 import { useStateContext } from '../../Contexts/ContextProvider';
 import axiosClient from '../../Config/axios-client';
+import './index.css'
 
-export default function ReportForm() {
+export default function DocumentForm() {
   const navigate = useNavigate();
   let {id} = useParams();
   const {user} = useStateContext()
-  const [noticia, SetNoticia] = useState({
+  const [documento, SetDocumento] = useState({
     id: null,
     user_id: user.id,
     title: '',
     description: '',
-    image: '',
     document: ''
   })
   const [errors, setErrors] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  if(id){
-    useEffect(()=>{
-        setLoading(true)
-        axiosClient.get(`/reports/${id}`)
-        .then(({data})=>{
-            setLoading(false)
-            SetNoticia(data)
-            setInputs(data)
-        })
-        .catch(()=>{
-            setLoading(false)
-        })
-    }, [id])
-  }
+  // if(id){
+  //   useEffect(()=>{
+  //       setLoading(true)
+  //       axiosClient.get(`/documents/${id}`)
+  //       .then(({data})=>{
+  //           setLoading(false)
+  //           SetDocumento(data)
+  //       })
+  //       .catch(()=>{
+  //           setLoading(false)
+  //       })
+  //   }, [id])
+  // }
 
-
-  const [inputs, setInputs] = useState([]);
-  const [fileImage, setFileImage]=useState('');
-  const [fileDocument, setFileDocument] = useState('');
-
-  const handleChangePrueba = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs(values => ({...values, [name]: value}))
-  }
+  // useEffect(() => {
+  //   if (id) {
+  //     setLoading(true);
+  //     axiosClient.get(`/documents/${id}`)
+  //       .then(({ data }) => {
+  //         setLoading(false);
+  //         setDocumento(data);
+  //       })
+  //       .catch(() => {
+  //         setLoading(false);
+  //       });
+  //   }
+  // }, [id]);
 
   const onSubmit = ev => {
     ev.preventDefault()
 
-    const formData = new FormData();
-    if(noticia.id){
-      formData.append('_method','PUT');
-      formData.append('id', inputs.id)
-      formData.append('user_id', inputs.user_id)
-      formData.append('title', inputs.title)
-      formData.append('description', inputs.description)
-      formData.append('image', fileImage)
-      formData.append('document', fileDocument)
-        axiosClient.post(`/reports/${noticia.id}`, formData, {headers:{"Content-Type" : 'multipart/form-data'}})
+    if(documento.id){
+        axiosClient.put(`/documents/${documento.id}`, documento, {headers:{"Content-Type" : 'multipart/form-data'}} )
         .then(()=>{
-            navigate('/newspaper')
+          console.log(documento)
+            navigate('/documents')
         })
         .catch(err => {
             const response = err.response;
@@ -68,10 +63,11 @@ export default function ReportForm() {
             }
         })
     }else{
-      console.log(noticia)
-      axiosClient.post('/reports', noticia, {headers:{"Content-Type" : 'multipart/form-data'}})
+      console.log(user.id)
+      console.log(documento)
+      axiosClient.post('/documents', documento , {headers:{"Content-Type" : 'multipart/form-data'}})
       .then(()=>{
-        navigate('/newspaper')
+        navigate('/documents')
       })
       .catch(err => {
         const response = err.response;
@@ -83,29 +79,26 @@ export default function ReportForm() {
 
   }
 
-  // const handleImageChange = (event) => {
-  //   const file = event.target.files[0];
-  //   SetNoticia({ ...noticia, image: file });
-  // };
+  
 
-  // const handleDocumentChange = (event) => {
-  //   const file = event.target.files[0];
-  //   SetNoticia({ ...noticia, document: file });
-  // };
+  const handleDocumentChange = (event) => {
+    const file = event.target.files[0];
+    SetDocumento({ ...documento, document: file });
+  };
 
   
   
     return (
     <>
-      { noticia.id && 
+      {documento.id && 
         <h1 className=' m-0 text-2xl font-semibold' >
-          Actualizar Noticia: {noticia.title}
+          Actualizar Documento: {documento.title}
         </h1> 
       }
       {
-        !noticia.id &&
+        !documento.id &&
         <h1 className=' m-0 text-2xl font-semibold' >
-          Agregar Noticia
+          Agregar Documento
         </h1>
       }
       <div  style={{ WebkitAnimationDuration: '0.3s', animationDuration: '0.3s', WebkitAnimationFillMode: 'both', animationFillMode: 'both', WebkitAnimationName: 'fadeInDown', animationName: 'fadeIndown' }} 
@@ -113,7 +106,7 @@ export default function ReportForm() {
         {
           loading && (
             <div className=' text-center' >
-              Cargando Noticia...
+              Cargando Documento...
             </div>
           )
         }
@@ -130,28 +123,21 @@ export default function ReportForm() {
             <form onSubmit={onSubmit}>
               <input 
                 className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
-                value={inputs.title} 
-                onChange={handleChangePrueba} 
+                value={documento.title} 
+                onChange={ev => SetDocumento({...documento, title: ev.target.value})} 
                 placeholder='Titulo'
-                name="title"
               />
               <input 
                 className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
-                value={inputs.description} 
-                onChange={handleChangePrueba} 
+                value={documento.description} 
+                onChange={ev => SetDocumento({...documento, description: ev.target.value})} 
                 placeholder='descripción'
-                name='description'
               />
+              
               <input 
                 className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
                 type='file' 
-                onChange={(e)=> setFileImage(e.target.files[0])} 
-                placeholder='imagen'
-              />
-              <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
-                type='file' 
-                onChange={(e)=> setFileDocument(e.target.files[0])} 
+                onChange={handleDocumentChange} 
                 placeholder='Documento'
               />
               <button 

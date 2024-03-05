@@ -18,7 +18,7 @@ class BirthdayController extends Controller
     public function index()
     {
         return BirthdayResource::collection(
-            Birthday::query()->orderBy('id','desc')
+            Birthday::query()->orderBy('id','desc')->paginate(10)
         );
     }
 

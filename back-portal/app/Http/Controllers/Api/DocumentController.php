@@ -18,7 +18,7 @@ class DocumentController extends Controller
     public function index()
     {
         return DocumentResource::collection(
-            Document::query()->orderBy('id', 'desc')
+            Document::query()->orderBy('id', 'desc')->paginate(10)
         );
     }
 

@@ -36,7 +36,7 @@ export default function DefaultLayout() {
                 </div>
 
               <ul>
-                <li>
+                {/* <li>
                   <Link
                     to="/users"
                     className="flex items-center gap-4 p-2 hover:bg-gray-200 transition-colors rounded-lg"
@@ -49,9 +49,9 @@ export default function DefaultLayout() {
                       Usuarios
                     </span>
                   </Link>
-                </li>
+                </li> */}
 
-                <li>
+                {/* <li>
                   <Link
                     to="/dashboard"
                     className="flex items-center gap-4 p-2 hover:bg-gray-200 transition-colors rounded-lg"
@@ -64,7 +64,7 @@ export default function DefaultLayout() {
                       Dashboard
                     </span>
                   </Link>
-                </li>
+                </li> */}
 
                 <li>
                   <Link
@@ -83,7 +83,7 @@ export default function DefaultLayout() {
 
                 <li>
                   <Link
-                    to="/dashboard"
+                    to="/birthdays"
                     className="flex items-center gap-4 p-2 hover:bg-gray-200 transition-colors rounded-lg"
                   >
                     <FontAwesomeIcon
@@ -98,7 +98,7 @@ export default function DefaultLayout() {
 
                 <li>
                   <Link
-                    to="/dashboard"
+                    to="/documents"
                     className="flex items-center gap-4 p-2 hover:bg-gray-200 transition-colors rounded-lg"
                   >
                     <FontAwesomeIcon

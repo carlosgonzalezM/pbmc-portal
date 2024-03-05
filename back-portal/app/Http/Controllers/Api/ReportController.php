@@ -22,6 +22,10 @@ class ReportController extends Controller
         );
     }
 
+    public function getNews()
+    {
+    }
+
     /**
      * Store a newly created resource in storage.
      */

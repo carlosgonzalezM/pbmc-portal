@@ -1,10 +1,11 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import axiosClient from "../Config/axios-client";
 
 const StateContext = createContext({
     user : null,
     token: null,
     setUser: () => {},
-    setToken: () => {}
+    setToken: () => {},
 })
 
 export const ContextProvider = ({children}) => {
@@ -20,12 +21,16 @@ export const ContextProvider = ({children}) => {
         }
     }
 
+   
+
     return (
         <StateContext.Provider value={{
             user,
             token,
             setUser,
-            setToken
+            setToken,
+            // noticiasObtenidas,
+            // setNoticiasObtenidas
         }}>
             {children}
         </StateContext.Provider>

@@ -22,6 +22,7 @@ class StoreDocumentRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'user_id' => [ 'required', 'numeric'],
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
             'document' => ['required', 'file', 'mimes:pdf, doc, docx', 'max:2048']

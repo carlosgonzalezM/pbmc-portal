@@ -9,6 +9,9 @@ import Users from './Pages/Users'
 import Dashboard from './Pages/Dashboard'
 import Newspaper from './Pages/Newspaper'
 import ReportForm from './Pages/ReportForm'
+import Documents from './Pages/Documents'
+import DocumentForm from './Pages/DocumentForm'
+import Birthdays from './Pages/Birthdays'
 
 const  router = createBrowserRouter([
     {
@@ -40,7 +43,10 @@ const  router = createBrowserRouter([
         children: [
             {
                 path:'/',
-                element: <Navigate to="/users"/>
+                element: 
+                    <Navigate 
+                        to="/users"
+                    />
             },
             {
                 path: '/users',
@@ -56,15 +62,39 @@ const  router = createBrowserRouter([
             },
             {
                 path: '/newspaper/new',
-                element: <ReportForm
-                key="reportCreate"
+                element: 
+                <ReportForm
+                    key="reportCreate"
                 />
             },
             {
                 path: '/newspaper/:id',
-                element: <ReportForm
-                key="reportUpdate"
+                element: 
+                <ReportForm
+                    key="reportUpdate"
                 />
+            },
+            {
+                path: '/documents',
+                element: <Documents/>
+            },
+            {
+                path: '/documents/new',
+                element: 
+                <DocumentForm
+                    key="documentCreate"
+                />
+            },
+            {
+                path: '/documents/:id',
+                element: 
+                <DocumentForm
+                    key="documentUpdate"
+                />
+            },
+            {
+                path: '/birthdays',
+                element: <Birthdays/>
             },
             
 
