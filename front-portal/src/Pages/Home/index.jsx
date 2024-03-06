@@ -4,8 +4,15 @@ import CardNews from '../../Components/CardNews'
 import Banner from '../../Components/Banner'
 import Birthday from '../../Components/Birthday'
 import Footer from '../../Components/Footer'
+import useEvento from '../../Hooks/useEvento'
 
 export default function Home() {
+
+    const {noticiasObtenidas} = useEvento();
+
+    const noticias = noticiasObtenidas
+
+
   return (
     <>
         <FeaturedNews/>
@@ -17,8 +24,17 @@ export default function Home() {
                 </h1>
             </div>
                     
-            <div className='grid gap-5 grid-cols-3 items-center w-full h-[940px] mb-10'>
-                <CardNews/>
+            <div className='grid gap-3 grid-cols-3 items-center w-full h-[940px] mb-10'>
+                
+                {
+                    noticias.map(noticia =>(
+                            <CardNews
+                                key={noticia.id}
+                                noticia={noticia}
+                            />
+                        )
+                    )
+                }
             </div>
         </div>
 

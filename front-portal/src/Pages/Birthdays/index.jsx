@@ -46,7 +46,7 @@ export default function Birthdays() {
         <h1 className=' m-0 text-2xl font-semibold' >
           Cumpleaños
         </h1>
-        <Link to="/newspaper/new">
+        <Link to="/birthdays/new">
           <button 
             className='rounded-lg border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]' 
           >
@@ -93,10 +93,10 @@ export default function Birthdays() {
                     <td className='p-2 border-b border-[#efefef]' >{n.first_name}</td>
                     <td className='p-2 border-b border-[#efefef]' >{n.last_name}</td>
                     <td className='p-2 border-b border-[#efefef]' >{n.area}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.date_birthday}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.image}</td>                    
+                    <td className='p-2 border-b border-[#efefef]' >{n.image}</td>
+                    <td className='p-2 border-b border-[#efefef]' >{n.date_birthday}</td>    
                     <td className='p-2 border-b border-[#efefef] justify-center'>
-                      <Link to={'/newspaper/'+ n.id}>
+                      <Link to={'/birthdays/'+ n.id}>
                         <button> 
                           <FontAwesomeIcon icon={faPenToSquare}/> 
                         </button>

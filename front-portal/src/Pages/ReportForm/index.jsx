@@ -35,29 +35,29 @@ export default function ReportForm() {
   }
 
 
-  const [inputs, setInputs] = useState([]);
-  const [fileImage, setFileImage]=useState('');
-  const [fileDocument, setFileDocument] = useState('');
+  // const [inputs, setInputs] = useState([]);
+  // const [fileImage, setFileImage]=useState('');
+  // const [fileDocument, setFileDocument] = useState('');
 
-  const handleChangePrueba = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs(values => ({...values, [name]: value}))
-  }
+  // const handleChangePrueba = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   setInputs(values => ({...values, [name]: value}))
+  // }
 
   const onSubmit = ev => {
     ev.preventDefault()
 
-    const formData = new FormData();
+    // const formData = new FormData();
     if(noticia.id){
-      formData.append('_method','PUT');
-      formData.append('id', inputs.id)
-      formData.append('user_id', inputs.user_id)
-      formData.append('title', inputs.title)
-      formData.append('description', inputs.description)
-      formData.append('image', fileImage)
-      formData.append('document', fileDocument)
-        axiosClient.post(`/reports/${noticia.id}`, formData, {headers:{"Content-Type" : 'multipart/form-data'}})
+      // formData.append('_method','PUT');
+      // formData.append('id', inputs.id)
+      // formData.append('user_id', inputs.user_id)
+      // formData.append('title', inputs.title)
+      // formData.append('description', inputs.description)
+      // formData.append('image', fileImage)
+      // formData.append('document', fileDocument)
+        axiosClient.post(`/reports/${noticia.id}`, noticia, {headers:{"Content-Type" : 'multipart/form-data'}})
         .then(()=>{
             navigate('/newspaper')
         })
@@ -83,15 +83,15 @@ export default function ReportForm() {
 
   }
 
-  // const handleImageChange = (event) => {
-  //   const file = event.target.files[0];
-  //   SetNoticia({ ...noticia, image: file });
-  // };
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    SetNoticia({ ...noticia, image: file });
+  };
 
-  // const handleDocumentChange = (event) => {
-  //   const file = event.target.files[0];
-  //   SetNoticia({ ...noticia, document: file });
-  // };
+  const handleDocumentChange = (event) => {
+    const file = event.target.files[0];
+    SetNoticia({ ...noticia, document: file });
+  };
 
   
   
@@ -130,28 +130,28 @@ export default function ReportForm() {
             <form onSubmit={onSubmit}>
               <input 
                 className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
-                value={inputs.title} 
-                onChange={handleChangePrueba} 
+                value={noticia.title} 
+                onChange={ev => SetNoticia({...noticia, title: ev.target.value})} 
                 placeholder='Titulo'
                 name="title"
               />
               <input 
                 className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
-                value={inputs.description} 
-                onChange={handleChangePrueba} 
+                value={noticia.description} 
+                onChange={ev => SetNoticia({...noticia, description: ev.target.value})} 
                 placeholder='descripción'
                 name='description'
               />
               <input 
                 className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
                 type='file' 
-                onChange={(e)=> setFileImage(e.target.files[0])} 
+                onChange={handleImageChange} 
                 placeholder='imagen'
               />
               <input 
                 className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
                 type='file' 
-                onChange={(e)=> setFileDocument(e.target.files[0])} 
+                onChange={handleDocumentChange} 
                 placeholder='Documento'
               />
               <button 

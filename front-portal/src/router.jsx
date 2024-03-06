@@ -12,6 +12,7 @@ import ReportForm from './Pages/ReportForm'
 import Documents from './Pages/Documents'
 import DocumentForm from './Pages/DocumentForm'
 import Birthdays from './Pages/Birthdays'
+import BirthdayForm from './Pages/BirthdayForm'
 
 const  router = createBrowserRouter([
     {
@@ -96,6 +97,20 @@ const  router = createBrowserRouter([
                 path: '/birthdays',
                 element: <Birthdays/>
             },
+            {
+                path: '/birthdays/new',
+                element: 
+                <BirthdayForm
+                    key="birthdayCreate"
+                />
+            },
+            {
+                path: '/birthdays/:id',
+                element: 
+                <BirthdayForm
+                    key="birthdayUpdate"
+                />
+            }
             
 
         ]
