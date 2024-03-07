@@ -19,16 +19,17 @@ export default function Home() {
 
         <div className='flex flex-col items-center mt-20'>
             <div className="w-full">
-                <h1 className='w-[40%] text-4xl font-bold text-turquezapb p-4 text-start border-b-2 border-b-magentapb ml-2'>
+                <h1 className='xl:w-[40%] w-full text-4xl font-bold text-turquezapb p-4 text-start xl:border-b-2 xl:border-b-magentapb ml-2'>
                     NOTICIAS PERFECT BODY
                 </h1>
             </div>
                     
-            <div className='grid gap-3 grid-cols-3 items-center w-full h-[940px] mb-10'>
+            <div className='grid gap-2 grid-cols-1 xl:place-items-center xl:grid-cols-3 md:grid-cols-2  w-full h-full mb-10'>
                 
                 {
                     noticias.map(noticia =>(
                             <CardNews
+
                                 key={noticia.id}
                                 noticia={noticia}
                             />

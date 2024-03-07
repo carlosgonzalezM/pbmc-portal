@@ -49,13 +49,13 @@ export default function FeaturedNews() {
         <Slider {...settings}>
             {
              data.map((d)=>(
-                                <div className="w-full h-[480px] rounded-lg">
-                                    <article className="w-full h-full flex justify-between mt-10 pb-5 rounded-lg">
+                                <div className="w-full h-[500px] rounded-lg">
+                                    <article className="w-full h-full flex justify-between sm:flex sm:col-auto mt-10 pb-5 rounded-lg">
                                         <div className="w-2/4 flex flex-col px-5">
-                                            <h1 className="font-cibfont-sans font-bold text-start mb-5 text-4xl text-turquezapb">
+                                            <h1 className="font-cibfont-sans font-bold text-start mb-5 text-xl xl:text-4xl text-turquezapb">
                                                 {d.title}
                                             </h1>
-                                            <p className="font-cibfont-sans text-lg text-start font-semibold mb-5 text-turquezapb">
+                                            <p className="font-cibfont-sans text-sm xl:text-lg text-start font-semibold mb-5 text-turquezapb">
                                                 {d.descripcion}
                                             </p>
                                             <div className="flex  justify-start">
