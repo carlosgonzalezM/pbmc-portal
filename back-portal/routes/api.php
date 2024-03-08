@@ -24,17 +24,12 @@ Route::middleware('auth:sanctum')->group(function(){
     });
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('/documents', DocumentController::class);
+    Route::apiResource('/birthdays', BirthdayController::class);
+    Route::apiResource('/reports', ReportController::class);
 });
-Route::apiResource('/birthdays', BirthdayController::class);
-Route::apiResource('/reports', ReportController::class);
-
 
 Route::get('/getdocuments', [DocumentController::class, 'index']);
-
-
-
 Route::get('/getnews', [ReportController::class, 'index']);
-
 
 
 Route::post('/signup',[AuthController::class, 'signup']);

@@ -25,7 +25,7 @@ class StoreDocumentRequest extends FormRequest
             'user_id' => [ 'required', 'numeric'],
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
-            'document' => ['required', 'file', 'mimes:pdf, doc, docx', 'max:2048']
+            'document' => ['required', 'file', 'mimes:pdf,doc,docx', 'max:2048']
         ];
     }
 
