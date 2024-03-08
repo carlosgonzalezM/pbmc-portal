@@ -8,6 +8,7 @@ const EventoContext = createContext();
 const EventoProvider = ({children}) => {
 
     const [noticiasObtenidas, setNoticiasObtenidas] = useState([]);
+    const [documentosObtenidos, setDocumentosObtenidos] = useState([]);
 
     const obtenerNoticias = async () => {
         try {
@@ -18,15 +19,29 @@ const EventoProvider = ({children}) => {
         }
     }
 
+    const obtenerDocumentos = async () => {
+        try {
+            const {data} = await clienteAxios.get('/getdocuments');
+            setDocumentosObtenidos(data.data);
+        }catch(error){
+            console.log(error)
+        }
+    }
+
+    
+
     useEffect(()=>{
         obtenerNoticias();
+        obtenerDocumentos();
     }, []);
 
     return (
         <EventoContext.Provider
             value={{
                 noticiasObtenidas, 
-                setNoticiasObtenidas
+                setNoticiasObtenidas,
+                documentosObtenidos,
+                setDocumentosObtenidos
             }}
         >
             {children}

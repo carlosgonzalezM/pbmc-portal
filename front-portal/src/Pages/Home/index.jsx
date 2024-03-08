@@ -5,13 +5,13 @@ import Banner from '../../Components/Banner'
 import Birthday from '../../Components/Birthday'
 import Footer from '../../Components/Footer'
 import useEvento from '../../Hooks/useEvento'
+import TableDocument from '../../Components/TableDocument'
 
 export default function Home() {
 
     const {noticiasObtenidas} = useEvento();
 
     const noticias = noticiasObtenidas
-
 
   return (
     <>
@@ -29,7 +29,6 @@ export default function Home() {
                 {
                     noticias.map(noticia =>(
                             <CardNews
-
                                 key={noticia.id}
                                 noticia={noticia}
                             />
@@ -48,7 +47,9 @@ export default function Home() {
         </div>
 
         <Birthday/>
-        
+
+        <TableDocument/>
+    
         <Footer/>
     </>
   )
