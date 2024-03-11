@@ -81,10 +81,7 @@ export default function TableDocument() {
                         </tr>
 
                         ))
-                        
-
                     }
-                        
                   </tbody>
               </table>
          </div>  

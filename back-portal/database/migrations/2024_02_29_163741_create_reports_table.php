@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description',1000);
             $table->string('image',500);
-            $table->string('document');
+            $table->string('document')->nullable();
             $table->timestamps();
         });
     }

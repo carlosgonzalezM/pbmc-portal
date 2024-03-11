@@ -45,7 +45,6 @@ export default function FeaturedNews() {
       };
 
     return (
-       
         <Slider {...settings}>
             {
              data.map((d)=>(

@@ -16,6 +16,16 @@ export default function ReportForm() {
     image: '',
     document: ''
   })
+
+  const [noticiaAuxiliar, SetNoticiaAuxiliar] = useState({
+    id: null,
+    user_id: user.id,
+    title: '',
+    description: '',
+    image: '',
+    document: ''
+  })
+
   const [errors, setErrors] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -26,7 +36,7 @@ export default function ReportForm() {
         .then(({data})=>{
             setLoading(false)
             SetNoticia(data)
-            setInputs(data)
+            SetNoticiaAuxiliar(data)
         })
         .catch(()=>{
             setLoading(false)
@@ -34,30 +44,26 @@ export default function ReportForm() {
     }, [id])
   }
 
-
-  // const [inputs, setInputs] = useState([]);
-  // const [fileImage, setFileImage]=useState('');
-  // const [fileDocument, setFileDocument] = useState('');
-
-  // const handleChangePrueba = (event) => {
-  //   const name = event.target.name;
-  //   const value = event.target.value;
-  //   setInputs(values => ({...values, [name]: value}))
-  // }
-
   const onSubmit = ev => {
     ev.preventDefault()
 
-    // const formData = new FormData();
+    const formData = new FormData();
     if(noticia.id){
-      // formData.append('_method','PUT');
-      // formData.append('id', inputs.id)
-      // formData.append('user_id', inputs.user_id)
-      // formData.append('title', inputs.title)
-      // formData.append('description', inputs.description)
-      // formData.append('image', fileImage)
-      // formData.append('document', fileDocument)
-        axiosClient.post(`/reports/${noticia.id}`, noticia, {headers:{"Content-Type" : 'multipart/form-data'}})
+
+      formData.append('_method','PUT');
+      formData.append('id', noticia.id)
+      formData.append('user_id', noticia.user_id)
+      formData.append('title', noticia.title)
+      formData.append('description', noticia.description)
+
+      if(noticiaAuxiliar.image!=noticia.image){
+        formData.append('image', noticia.image)
+      }
+      if(noticiaAuxiliar.document!=noticia.document){
+        formData.append('document', noticia.document)
+      }
+
+        axiosClient.post(`/reports/${noticia.id}`, formData, {headers:{"Content-Type" : 'multipart/form-data'}})
         .then(()=>{
             navigate('/newspaper')
         })
@@ -68,7 +74,7 @@ export default function ReportForm() {
             }
         })
     }else{
-      console.log(noticia)
+
       axiosClient.post('/reports', noticia, {headers:{"Content-Type" : 'multipart/form-data'}})
       .then(()=>{
         navigate('/newspaper')
@@ -93,7 +99,6 @@ export default function ReportForm() {
     SetNoticia({ ...noticia, document: file });
   };
 
-  
   
     return (
     <>

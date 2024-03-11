@@ -13,9 +13,7 @@ export default function Signup() {
     const {setUser, setToken} = useStateContext()
   
     const [errors, setErrors] = useState(null)
-  
-    // const {signup} = useAuth({middleware: 'guest', url:'/users'})
-  
+    
     const onSubmit = (ev) => {
       ev.preventDefault()
   
@@ -38,41 +36,8 @@ export default function Signup() {
                 setErrors(response.data.errors)
             }
         })
-
-      
-    //   signup(datos, setErrores)
     }
   
-      // axiosClient.post('/signup', payload)
-      //   .then(({data})=>{
-      //     setUser(data.user)
-      //     setToken(data.token)
-      //   })
-      //   .catch(err=>{
-      //     const response = err.response;
-      //     if(response && response.status === 422){
-      //       console.log(response.data.errors);
-      //     }
-      //   })
-  
-        // .then(({ data }) => {
-        //   setUser(data.user);
-        //   setToken(data.token);
-        // })
-        // .catch(err => {
-        //   console.error('Error durante la inscripción:', err);
-    
-        //   const response = err.response;
-        //   if (response) {
-        //     if (response.status === 422) {
-        //       console.log('Errores de validación:', response.data.errors);
-        //     } else {
-        //       console.log('Otro error:', response.data.message || 'Algo salió mal.');
-        //     }
-        //   } else {
-        //     console.log('Error de red o solicitud abortada.');
-        //   }
-        // });
     
   
     return (

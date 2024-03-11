@@ -16,42 +16,51 @@ export default function DocumentForm() {
     description: '',
     document: ''
   })
+
+  const [documentoAuxiliar, SetDocumentoAuxiliar] = useState({
+    id: null,
+    user_id: user.id,
+    title: '',
+    description: '',
+    document: ''
+  })
+
+
   const [errors, setErrors] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  // if(id){
-  //   useEffect(()=>{
-  //       setLoading(true)
-  //       axiosClient.get(`/documents/${id}`)
-  //       .then(({data})=>{
-  //           setLoading(false)
-  //           SetDocumento(data)
-  //       })
-  //       .catch(()=>{
-  //           setLoading(false)
-  //       })
-  //   }, [id])
-  // }
-
-  // useEffect(() => {
-  //   if (id) {
-  //     setLoading(true);
-  //     axiosClient.get(`/documents/${id}`)
-  //       .then(({ data }) => {
-  //         setLoading(false);
-  //         setDocumento(data);
-  //       })
-  //       .catch(() => {
-  //         setLoading(false);
-  //       });
-  //   }
-  // }, [id]);
+  if(id){
+    useEffect(()=>{
+        setLoading(true)
+        axiosClient.get(`/documents/${id}`)
+        .then(({data})=>{
+            setLoading(false)
+            SetDocumento(data)
+            SetDocumentoAuxiliar(data)
+        })
+        .catch(()=>{
+            setLoading(false)
+        })
+    }, [id])
+  }
 
   const onSubmit = ev => {
     ev.preventDefault()
 
+    const formData = new FormData();
     if(documento.id){
-        axiosClient.put(`/documents/${documento.id}`, documento, {headers:{"Content-Type" : 'multipart/form-data'}} )
+      
+      formData.append('_method', 'PUT')
+      formData.append('id', documento.id)
+      formData.append('user_id', documento.user_id)
+      formData.append('title', documento.title)
+      formData.append('description', documento.description)
+
+      if(documentoAuxiliar.document!=documento.document){
+        formData.append('document', documento.document)
+      }
+
+        axiosClient.post(`/documents/${documento.id}`, formData, {headers:{"Content-Type" : 'multipart/form-data'}} )
         .then(()=>{
           console.log(documento)
             navigate('/documents')
