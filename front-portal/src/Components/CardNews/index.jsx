@@ -24,7 +24,7 @@ const {id, title, description, image} = noticia
                        {description}
                    </p>
                    <div className="flex  justify-start pb-2">
-                        <Link to='/noticia'>
+                        <Link to={'/news/'+id}>
                                <button className=" text-[#FFFFFF] font-bold text-xs bg-turquezapb text-white py-2 px-4 rounded-full shadow-turquezapb">
                                    Ver más
                                </button>

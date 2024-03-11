@@ -25,10 +25,10 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('/documents', DocumentController::class);
     Route::apiResource('/birthdays', BirthdayController::class);
-    //Route::apiResource('/reports', ReportController::class);
 });
-
 Route::apiResource('/reports', ReportController::class);
+
+// Route::get('/news/{id}', [ReportController::class, 'index']);
 
 
 Route::get('/getdocuments', [DocumentController::class, 'index']);

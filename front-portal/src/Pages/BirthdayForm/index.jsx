@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
 import { useStateContext } from '../../Contexts/ContextProvider';
 import axiosClient from '../../Config/axios-client';
-import axios from 'axios';
-import clienteAxios from '../../Config/axios';
 
 export default function BirthdayForm() {
   const navigate = useNavigate();
@@ -19,6 +17,17 @@ export default function BirthdayForm() {
     date_birthday: '',
     image: '',
   })
+
+  const [cumpleañosAuxiliar, SetCumpleañosAuxiliar] = useState({
+    id: null,
+    user_id: user.id,
+    first_name: '',
+    last_name: '',
+    area: '',
+    date_birthday: '',
+    image: '',
+  })
+
   const [errors, setErrors] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -29,6 +38,7 @@ export default function BirthdayForm() {
         .then(({data})=>{
             setLoading(false)
             SetCumpleaños(data)
+            SetCumpleañosAuxiliar(data)
         })
         .catch(()=>{
             setLoading(false)
@@ -41,21 +51,20 @@ export default function BirthdayForm() {
 
   const onSubmit = ev => {
     ev.preventDefault()
+
     const formData = new FormData();
-    formData.append('user_id', cumpleaños.user_id)
-    formData.append('first_name', cumpleaños.first_name)
-    formData.append('last_name', cumpleaños.last_name)
-    formData.append('area', cumpleaños.area)
-    formData.append('date_birthday', cumpleaños.date_birthday)
-    formData.append('image', cumpleaños.image)
 
     if(cumpleaños.id){
-
-      console.log(cumpleaños)
-      SetCumpleaños({ ...cumpleaños, image:`http://127.0.0.1:8000/storage/${cumpleaños.image}` }); // Actualiza el estado con la URL de la imagen
       formData.append('_method', 'PUT')
-      formData.append('image', cumpleaños.image)
+      formData.append('user_id', cumpleaños.user_id)
+      formData.append('first_name', cumpleaños.first_name)
+      formData.append('last_name', cumpleaños.last_name)
+      formData.append('area', cumpleaños.area)
+      formData.append('date_birthday', cumpleaños.date_birthday)
 
+      if(cumpleaños.image != cumpleañosAuxiliar.image){
+        formData.append('image', cumpleaños.image)
+      }
       console.log(cumpleaños)
         axiosClient.post(`/birthdays/${cumpleaños.id}`, formData, {headers:{"Content-Type" : 'multipart/form-data'}})
         .then(()=>{
@@ -148,8 +157,8 @@ export default function BirthdayForm() {
                 className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
                 type='date'
                 value={cumpleaños.date_birthday} 
-                onChange={ev => SetNoticia({...cumpleaños, date_birthday: ev.target.value})} 
-                placeholder='fecha de nacimiento'
+                onChange={ev => SetCumpleaños({...cumpleaños, date_birthday: ev.target.value})} 
+                
               />
 
               <input 

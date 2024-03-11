@@ -13,6 +13,7 @@ import Documents from './Pages/Documents'
 import DocumentForm from './Pages/DocumentForm'
 import Birthdays from './Pages/Birthdays'
 import BirthdayForm from './Pages/BirthdayForm'
+import News from './Pages/News'
 
 const  router = createBrowserRouter([
     {
@@ -35,6 +36,12 @@ const  router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Signup/>
+            },
+            {
+                path: '/news/:id',
+                element: <News
+                    key="showNews"
+                />
             }
         ]
     },
