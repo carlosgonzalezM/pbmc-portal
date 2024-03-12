@@ -2,6 +2,7 @@ import React, { createRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 import axiosClient from '../../Config/axios-client';
 import { useStateContext } from '../../Contexts/ContextProvider';
+import Footer from '../../Components/Footer';
 
 export default function Login() {
 
@@ -144,6 +145,8 @@ export default function Login() {
                     </div>
 
                 </section>
+
+                <Footer/>
             </>
         )
 }

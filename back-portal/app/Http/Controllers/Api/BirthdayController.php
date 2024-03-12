@@ -7,6 +7,7 @@ use App\Models\Birthday;
 use App\Http\Requests\StoreBirthdayRequest;
 use App\Http\Requests\UpdateBirthdayRequest;
 use App\Http\Resources\BirthdayResource;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -79,4 +80,79 @@ class BirthdayController extends Controller
 
         return response("",204);
     }
+
+    public function getBirthdayMonth()
+    {
+        // Obtener la fecha actual
+            $now = Carbon::now();
+
+        // Obtener el número del mes actual
+            $currentMonth = $now->month;
+
+        //definir la variable mes
+            $month = null;
+
+        // Obtener los cumpleaños de este mes
+            $birthdaysThisMonth = Birthday::query()
+            ->whereMonth('date_birthday', '=', $currentMonth)
+            ->get();
+
+            switch($currentMonth){
+                case(1):
+                    $month = "Enero";
+                    break;
+                case(2):
+                    $month = "Febrero";
+                    break;
+                case(3):
+                    $month = "Marzo";
+                    break;
+                case(4):
+                    $month = "Abril";
+                    break;
+                case(5):
+                    $month = "Mayo";
+                    break;
+                case(6):
+                    $month = "Junio";
+                    break;
+                case(7):
+                    $month = "Julio";
+                    break;
+                case(8):
+                    $month = "Agosto";
+                    break;
+                case(9):
+                    $month = "Septiembre";
+                    break;
+                case(10):
+                    $month = "Octubre";
+                    break;
+                case(11):
+                    $month = "Noviembre";
+                    break;
+                case(12):
+                    $month = "Diciembre";
+                    break;
+            }
+
+        // Transformar los cumpleaños a recursos y devolverlos
+        $birthdaysFormatted = $birthdaysThisMonth->map(function ($birthday) {
+            return [
+                'id' => $birthday->id,
+                'user_id' => $birthday->user_id,
+                'image' => $birthday->image,
+                'first_name' => $birthday->first_name,
+                'last_name' => $birthday->last_name,
+                'area' => $birthday->area,
+                'date_birthday' => Carbon::parse($birthday->date_birthday)->day, // Solo el día del cumpleaños
+            ];
+        });
+
+            return [
+                'currentMonth' => $month,
+                'birthdays' => $birthdaysFormatted
+            ];
+    }
+
 }

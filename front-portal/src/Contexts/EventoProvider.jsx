@@ -9,11 +9,28 @@ const EventoProvider = ({children}) => {
 
     const [noticiasObtenidas, setNoticiasObtenidas] = useState([]);
     const [documentosObtenidos, setDocumentosObtenidos] = useState([]);
+    const [cumpleañosObtenidos, setCumpleañosObtenidos] = useState([]);
+    const [fechaActual, setFechaActual] = useState([]);
+
+    const obtenerCumpleaños = async () => {
+        try {
+            const {data} = await clienteAxios.get('/getbirthdays')
+            console.log(data)
+            console.log(data.currentMonth)
+            console.log(data.birthdays)
+            setFechaActual(data.currentMonth)
+            setCumpleañosObtenidos(data.birthdays)
+        }catch(error){
+            console.log(error)
+        }
+    }
 
     const obtenerNoticias = async () => {
         try {
             const {data} = await clienteAxios.get('/getnews');
+            console.log(data)
             setNoticiasObtenidas(data.data);
+            console.log(data.data)
         }catch(error){
             console.log(error)
         }
@@ -23,6 +40,7 @@ const EventoProvider = ({children}) => {
         try {
             const {data} = await clienteAxios.get('/getdocuments');
             setDocumentosObtenidos(data.data);
+            console.log(data.data)
         }catch(error){
             console.log(error)
         }
@@ -33,6 +51,7 @@ const EventoProvider = ({children}) => {
     useEffect(()=>{
         obtenerNoticias();
         obtenerDocumentos();
+        obtenerCumpleaños();
     }, []);
 
     return (
@@ -41,7 +60,11 @@ const EventoProvider = ({children}) => {
                 noticiasObtenidas, 
                 setNoticiasObtenidas,
                 documentosObtenidos,
-                setDocumentosObtenidos
+                setDocumentosObtenidos,
+                cumpleañosObtenidos,
+                setCumpleañosObtenidos,
+                fechaActual,
+                setFechaActual
             }}
         >
             {children}

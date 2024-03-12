@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useStateContext } from '../../Contexts/ContextProvider';
 import axiosClient from '../../Config/axios-client';
+import Footer from '../../Components/Footer';
 
 export default function Signup() {
     
@@ -178,6 +179,8 @@ export default function Signup() {
               </form>
             </div>
           </div>
+
+          <Footer/>
         </>
     )
 }

@@ -28,11 +28,10 @@ Route::middleware('auth:sanctum')->group(function(){
 });
 Route::apiResource('/reports', ReportController::class);
 
-// Route::get('/news/{id}', [ReportController::class, 'index']);
-
 
 Route::get('/getdocuments', [DocumentController::class, 'index']);
 Route::get('/getnews', [ReportController::class, 'index']);
+Route::get('/getbirthdays', [BirthdayController::class, 'getBirthdayMonth']);
 
 
 Route::post('/signup',[AuthController::class, 'signup']);

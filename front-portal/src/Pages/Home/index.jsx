@@ -9,9 +9,14 @@ import TableDocument from '../../Components/TableDocument'
 
 export default function Home() {
 
-    const {noticiasObtenidas} = useEvento();
+    const {noticiasObtenidas, cumpleañosObtenidos, fechaActual } = useEvento();
 
-    const noticias = noticiasObtenidas
+    const noticias = noticiasObtenidas;
+    const cumpleaños = cumpleañosObtenidos;
+    const fecha = fechaActual;
+
+    console.log(noticias)
+    console.log(cumpleaños)
 
   return (
     <>
@@ -42,11 +47,18 @@ export default function Home() {
         
         <div className="w-full">
             <h1 className='w-[30%] text-start text-3xl font-semibold text-turquezapb mt-10 border-b-2 pb-4  border-b-magentapb' >
-                Cumpleaños Perfect Body
+                Cumpleaños {fecha} Perfect Body
             </h1>
         </div>
-
-        <Birthday/>
+            {
+                cumpleaños.map(cumple =>(
+                    <Birthday
+                        key={cumple.id}
+                        cumple = {cumple}
+                    />
+                ))
+            }
+        
 
         <TableDocument/>
     
