@@ -48,7 +48,7 @@ export default function FeaturedNews() {
         <Slider {...settings}>
             {
              data.map((d)=>(
-                                <div className="w-full h-[500px] rounded-lg">
+                                <div className="w-full h-[600px] rounded-lg -z-10">
                                     <article className="w-full h-full flex justify-between sm:flex sm:col-auto mt-10 pb-5 rounded-lg">
                                         <div className="w-2/4 flex flex-col px-5">
                                             <h1 className="font-cibfont-sans font-bold text-start mb-5 text-xl xl:text-4xl text-turquezapb">

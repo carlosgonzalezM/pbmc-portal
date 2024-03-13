@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axiosClient from '../../Config/axios-client';
 import { useStateContext } from '../../Contexts/ContextProvider';
 import Footer from '../../Components/Footer';
+import NavbarLogin from '../../Components/NabvarLogin';
 
 export default function Login() {
 
@@ -54,7 +55,10 @@ export default function Login() {
  
     return (
             <>
-                <section className="flex justify-between w-full h-[800px]">
+
+                <NavbarLogin/>
+
+                <section className="flex justify-between w-full h-[800px] pt-8">
                     <div className="flex w-1/2 min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                             <img

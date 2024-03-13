@@ -65,7 +65,6 @@ export default function BirthdayForm() {
       if(cumpleaños.image != cumpleañosAuxiliar.image){
         formData.append('image', cumpleaños.image)
       }
-      console.log(cumpleaños)
         axiosClient.post(`/birthdays/${cumpleaños.id}`, formData, {headers:{"Content-Type" : 'multipart/form-data'}})
         .then(()=>{
             navigate('/birthdays')
@@ -77,7 +76,6 @@ export default function BirthdayForm() {
             }
         })
     }else{
-      console.log(cumpleaños)
       axiosClient.post('/birthdays', cumpleaños, {headers:{"Content-Type" : 'multipart/form-data'}})
       .then(()=>{
         navigate('/birthdays')

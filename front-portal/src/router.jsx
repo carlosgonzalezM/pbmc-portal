@@ -50,19 +50,9 @@ const  router = createBrowserRouter([
         element: <DefaultLayout/>,
         children: [
             {
-                path:'/',
+                index: true,
                 element: 
-                    <Navigate 
-                        to="/users"
-                    />
-            },
-            {
-                path: '/users',
-                element: <Users/>
-            },
-            {
-                path: '/dashboard',
-                element: <Dashboard/>
+                    <Newspaper/>
             },
             {
                 path: '/newspaper',
@@ -117,7 +107,15 @@ const  router = createBrowserRouter([
                 <BirthdayForm
                     key="birthdayUpdate"
                 />
-            }
+            },
+            {
+                path: '/users',
+                element: <Users/>
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard/>
+            },
             
 
         ]

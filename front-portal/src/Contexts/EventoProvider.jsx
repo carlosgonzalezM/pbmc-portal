@@ -1,5 +1,4 @@
-import { Children, createContext, useEffect, useState } from "react";
-import axiosClient from "../Config/axios-client";
+import {createContext, useEffect, useState } from "react";
 import clienteAxios from "../Config/axios";
 
 
@@ -15,9 +14,6 @@ const EventoProvider = ({children}) => {
     const obtenerCumpleaños = async () => {
         try {
             const {data} = await clienteAxios.get('/getbirthdays')
-            console.log(data)
-            console.log(data.currentMonth)
-            console.log(data.birthdays)
             setFechaActual(data.currentMonth)
             setCumpleañosObtenidos(data.birthdays)
         }catch(error){
@@ -28,9 +24,7 @@ const EventoProvider = ({children}) => {
     const obtenerNoticias = async () => {
         try {
             const {data} = await clienteAxios.get('/getnews');
-            console.log(data)
             setNoticiasObtenidas(data.data);
-            console.log(data.data)
         }catch(error){
             console.log(error)
         }
@@ -40,14 +34,12 @@ const EventoProvider = ({children}) => {
         try {
             const {data} = await clienteAxios.get('/getdocuments');
             setDocumentosObtenidos(data.data);
-            console.log(data.data)
         }catch(error){
             console.log(error)
         }
     }
 
     
-
     useEffect(()=>{
         obtenerNoticias();
         obtenerDocumentos();

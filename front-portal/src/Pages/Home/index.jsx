@@ -6,6 +6,7 @@ import Birthday from '../../Components/Birthday'
 import Footer from '../../Components/Footer'
 import useEvento from '../../Hooks/useEvento'
 import TableDocument from '../../Components/TableDocument'
+import Navbar from '../../Components/Navbar'
 
 export default function Home() {
 
@@ -15,11 +16,9 @@ export default function Home() {
     const cumpleaños = cumpleañosObtenidos;
     const fecha = fechaActual;
 
-    console.log(noticias)
-    console.log(cumpleaños)
-
   return (
     <>
+        <Navbar/>
         <FeaturedNews/>
 
         <div className='flex flex-col items-center mt-20'>
@@ -50,18 +49,9 @@ export default function Home() {
                 Cumpleaños {fecha} Perfect Body
             </h1>
         </div>
-            {
-                cumpleaños.map(cumple =>(
-                    <Birthday
-                        key={cumple.id}
-                        cumple = {cumple}
-                    />
-                ))
-            }
-        
-
+     
+        <Birthday/>
         <TableDocument/>
-    
         <Footer/>
     </>
   )

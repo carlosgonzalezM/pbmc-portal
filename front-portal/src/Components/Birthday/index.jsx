@@ -1,126 +1,35 @@
 import React from 'react'
+import useEvento from '../../Hooks/useEvento';
 
-const people = [
-    {
-      name: 'Leslie Alexander',
-      role: 'Co-Founder / CEO',
-      imageUrl:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      birthday: 1,
-    },
-    {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 1,
 
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 2,
+export default function Birthday() {
 
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 3,
 
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 6,
+  const {cumpleañosObtenidos} = useEvento();
 
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 8,
-
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 9,
-
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 10,
-
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 12,
-
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 14,
-
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 19,
-
-      },
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          birthday: 30,
-
-      },
-     
-    // More people...
-  ]
-
-export default function Birthday({cumple}) {
-
-  const {id, first_name, last_name, area, date_birthday, image} = cumple
+  const cumpleaños = cumpleañosObtenidos;
 
   return (
-    <section className="flex justify-between " >
+    <section className="flex justify-between ">
         <section className="w-1/3">
             <div className=" w-full bg-white py-2 px-20 sm:py-16">
                 <ul className=" flex flex-col" >
-                    
-                  <li className="flex justify-center mb-3 " 
-                      key={id}
-                  >
-                                                    
+                  {
+                    cumpleaños.map(cumplea=>(
+                      <li className="flex justify-center mb-3 " 
+                      key={cumplea.id}
+                  >                              
                       <p className=" text-magentapb font-bold text-lg mr-4">
-                          {date_birthday}
+                          {cumplea.date_birthday}
                       </p>
+
                       <p className=" font-semibold text-base">
-                          {first_name}
+                          {cumplea.first_name}
                       </p>
                   </li>
+                    )) 
+                  }  
+                  
                 </ul>
             </div>
         </section>
@@ -128,26 +37,31 @@ export default function Birthday({cumple}) {
         <section className="w-2/3">
             <div className="bg-white w-full py-2 sm:py-16">
                 <div className="mx-auto grid w-full gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-                            <ul role="list" 
-                                className="grid gap-x-10 gap-y-20 w-full sm:grid-cols-3 sm:gap-y-16 xl:col-span-4">
-                                
-                                                                <li key={id}>
-                                                                        <div className="flex items-center gap-x-6">
-                                                                            <img className="h-16 w-16 rounded-full" 
-                                                                                src={image} alt="" 
-                                                                            />
-                                                                            <div>
-                                                                                <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
-                                                                                    {last_name}
-                                                                                </h3>
-                                                                                <p className="text-sm font-semibold leading-6 text-indigo-600">
-                                                                                    {area}
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                </li>
-                                     
-                            </ul>
+                   <ul role="list" 
+                       className="grid gap-x-10 gap-y-20 w-full sm:grid-cols-3 sm:gap-y-16 xl:col-span-4"
+                   >
+                    {
+                      cumpleaños.map(cumplea=>(
+                        <li key={cumplea.id}>
+                        <div className="flex items-center gap-x-6">
+                          <img className="h-16 w-16 rounded-full" 
+                            src={`http://127.0.0.1:8000/storage/${cumplea.image}`} alt="" 
+                          />
+                          <div>
+                            <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
+                              {cumplea.last_name}
+                            </h3>
+                            <p className="text-sm font-semibold leading-6 text-indigo-600">
+                              {cumplea.area}
+                            </p>
+                          </div>
+                        </div>
+                      </li>       
+
+                      ))
+                    }
+                       
+                    </ul>
                  </div>
             </div>
         </section>

@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useStateContext } from '../../Contexts/ContextProvider';
 import axiosClient from '../../Config/axios-client';
 import Footer from '../../Components/Footer';
+import NavbarSignup from '../../Components/NavbarSignup';
 
 export default function Signup() {
     
@@ -41,7 +42,9 @@ export default function Signup() {
   
     return (
       <>
-          <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
+        
+          <NavbarSignup/>
+          <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8 mt-4">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <img
                 className="mx-auto h-25 w-25"

@@ -29,8 +29,6 @@ export const ContextProvider = ({children}) => {
             token,
             setUser,
             setToken,
-            // noticiasObtenidas,
-            // setNoticiasObtenidas
         }}>
             {children}
         </StateContext.Provider>

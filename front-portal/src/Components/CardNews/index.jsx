@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function CardNews({noticia}) {
 
-const {id, title, description, image} = noticia
+    const {id, title, description, image} = noticia;
 
   return (
         <div className=" m-4 max-w-[480px] max-h-[450px] rounded-lg  shadow-xl shadow-turquezapb">
@@ -33,6 +33,5 @@ const {id, title, description, image} = noticia
                </div>
            </div>
         </div>
-//    ))
-  )
+    )
 }

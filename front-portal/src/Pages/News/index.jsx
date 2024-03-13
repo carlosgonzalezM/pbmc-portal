@@ -17,7 +17,6 @@ export default function News() {
   useEffect(()=>{
     clienteAxios.get(`/reports/${id}`)
     .then(({data})=>{
-      console.log(data)
         SetNoticia(data)
     })
     .catch(()=>{
@@ -29,22 +28,25 @@ export default function News() {
     <>
     
     <article className='w-full flex flex-col items-center'>
-
       <div className='w-[80%]' >
-        <h1 className=' w-full h-auto pb-2 my-4 text-4xl' >{noticia.title}</h1>
+        <h1 className=' w-full h-auto pb-2 my-4 text-4xl' >
+          {noticia.title}
+        </h1>
         
         <p className='w-full h-auto mb-3 text-xl' >
           {noticia.description}
         </p>
+        
         <figure className='w-full h-full'  >
-          <img className=' object-contain w-full h-[480px]' src={`http://127.0.0.1:8000/storage/${noticia.image}`}
-              alt={noticia.title}  />
+          <img 
+              className=' object-contain w-full h-[480px]' 
+              src={`http://127.0.0.1:8000/storage/${noticia.image}`}
+              alt={noticia.title} 
+          />
         </figure>
 
       </div>
-
     </article>
-    
     <Footer/>
     </>
   )
