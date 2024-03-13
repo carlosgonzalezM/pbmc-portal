@@ -108,14 +108,14 @@ const  router = createBrowserRouter([
                     key="birthdayUpdate"
                 />
             },
-            {
-                path: '/users',
-                element: <Users/>
-            },
-            {
-                path: '/dashboard',
-                element: <Dashboard/>
-            },
+            // {
+            //     path: '/users',
+            //     element: <Users/>
+            // },
+            // {
+            //     path: '/dashboard',
+            //     element: <Dashboard/>
+            // },
             
 
         ]
