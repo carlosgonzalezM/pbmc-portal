@@ -25,7 +25,7 @@ class StoreDocumentRequest extends FormRequest
             'user_id' => [ 'required', 'numeric'],
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
-            'document' => ['required', 'file', 'mimes:pdf,doc,docx', 'max:2048']
+            'document' => ['required', 'file', 'mimes:pdf,doc,docx,xlsx', 'max:2048']
         ];
     }
 
@@ -36,7 +36,7 @@ class StoreDocumentRequest extends FormRequest
             'description.required' => 'El campo description es obligatorio.',
             'document.required' => 'El campo document es obligatorio.',
             'document.file' => 'El campo document debe ser un archivo.',
-            'document.mimes' => 'El documento debe tener un formato de archivo válido (pdf, doc, docx).',
+            'document.mimes' => 'El documento debe tener un formato de archivo válido (pdf, doc, docx, xlsx).',
             'document.max' => 'El tamaño del documento no debe superar los 2048 kilobytes (2MB).',
         ];
     }

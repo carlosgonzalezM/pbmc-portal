@@ -3,10 +3,8 @@ import GuestLayout from './Layouts/GuestLayout'
 import Home from './Pages/Home'
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
-import { Navigate, createBrowserRouter } from 'react-router-dom'
+import {createBrowserRouter } from 'react-router-dom'
 import DefaultLayout from './Layouts/DefaultLayout'
-import Users from './Pages/Users'
-import Dashboard from './Pages/Dashboard'
 import Newspaper from './Pages/Newspaper'
 import ReportForm from './Pages/ReportForm'
 import Documents from './Pages/Documents'
@@ -14,6 +12,7 @@ import DocumentForm from './Pages/DocumentForm'
 import Birthdays from './Pages/Birthdays'
 import BirthdayForm from './Pages/BirthdayForm'
 import News from './Pages/News'
+import Users from './Pages/Users'
 
 const  router = createBrowserRouter([
     {
@@ -25,20 +24,20 @@ const  router = createBrowserRouter([
                 element: <Home/>
             },
             {
-                path: '/home',
+                path: 'home',
                 element: <Home/>
 
             },
             {
-                path: '/login',
+                path: 'login',
                 element: <Login/>
             },
             {
-                path: '/signup',
+                path: 'signup',
                 element: <Signup/>
             },
             {
-                path: '/news/:id',
+                path: 'news/:id',
                 element: <News
                     key="showNews"
                 />
@@ -49,69 +48,69 @@ const  router = createBrowserRouter([
         path: '/',
         element: <DefaultLayout/>,
         children: [
+            // {
+            //     path:'/',
+            //     element:
+            //     <Navigate to="/newspaper"  /> 
+            // },
             {
-                index: true,
-                element: 
-                    <Newspaper/>
-            },
-            {
-                path: '/newspaper',
+                path: 'newspaper',
                 element: <Newspaper/>
             },
             {
-                path: '/newspaper/new',
+                path: 'newspaper/new',
                 element: 
                 <ReportForm
                     key="reportCreate"
                 />
             },
             {
-                path: '/newspaper/:id',
+                path: 'newspaper/:id',
                 element: 
                 <ReportForm
                     key="reportUpdate"
                 />
             },
             {
-                path: '/documents',
+                path: 'documents',
                 element: <Documents/>
             },
             {
-                path: '/documents/new',
+                path: 'documents/new',
                 element: 
                 <DocumentForm
                     key="documentCreate"
                 />
             },
             {
-                path: '/documents/:id',
+                path: 'documents/:id',
                 element: 
                 <DocumentForm
                     key="documentUpdate"
                 />
             },
             {
-                path: '/birthdays',
+                path: 'birthdays',
                 element: <Birthdays/>
             },
             {
-                path: '/birthdays/new',
+                path: 'birthdays/new',
                 element: 
                 <BirthdayForm
                     key="birthdayCreate"
                 />
             },
             {
-                path: '/birthdays/:id',
+                path: 'birthdays/:id',
                 element: 
                 <BirthdayForm
                     key="birthdayUpdate"
                 />
             },
-            // {
-            //     path: '/users',
-            //     element: <Users/>
-            // },
+            {
+                path: 'users',
+                element: <Users/>
+            },
             // {
             //     path: '/dashboard',
             //     element: <Dashboard/>

@@ -76,4 +76,10 @@ class DocumentController extends Controller
 
         return response("", 204);
     }
+
+    function download(string $archivo){
+        $path = storage_path("app/public/$archivo");
+
+        return response()->download($path);
+    }
 }

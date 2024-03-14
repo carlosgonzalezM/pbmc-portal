@@ -24,7 +24,7 @@ class UpdateDocumentRequest extends FormRequest
         return [
             'title' => ['string'],
             'description' => ['string'],
-            'document' => ['file', 'mimes:pdf, doc, docx', 'max:2048']
+            'document' => ['file', 'mimes:pdf,doc,docx,xlsx', 'max:2048']
         ];
     }
 }

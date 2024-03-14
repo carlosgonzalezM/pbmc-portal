@@ -37,3 +37,4 @@ Route::get('/getbirthdays', [BirthdayController::class, 'getBirthdayMonth']);
 Route::post('/signup',[AuthController::class, 'signup']);
 Route::post('/login',[AuthController::class, 'login']);
 
+Route::get("/download/{archivo}", [DocumentController::class, 'download']);
