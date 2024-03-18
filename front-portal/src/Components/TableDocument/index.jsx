@@ -63,26 +63,27 @@ export default function TableDocument() {
   return (
     <section className="w-full flex justify-center pb-20">
         <div className="w-4/5  rounded-lg bg-[#fff] shadow-md p-6">
-            <h1 className=" font-semibold text-lg" >
+            <h1 className=" font-semibold text-lg mb-6" >
                 Encuentre aqui los documentos
             </h1>
             
-            <table class="table-auto w-full">
+            <table class="w-full border-collapse">
                 <thead>
-                    <tr className="p-3">
-                        <th className="p-3 text-start">
+                    <tr className="bg-[#E5E7EB]">
+
+                        <th className="p-3 text-left">
                             Fecha de Publicacion
                         </th>
-                        <th className="p-3 text-start">
+                        <th className="p-3 text-left">
                             Tipo
                         </th>
-                        <th className="p-3 text-start ">
+                        <th className="p-3 text-left ">
                             Titulo
                         </th>
-                        <th className="p-3 text-start">
+                        <th className="p-3 text-left">
                             Descripcion
                         </th>
-                        <th className="p-3 text-start">
+                        <th className="p-3 text-left">
                             Ver/Descargar 
                         </th>
                     </tr>
@@ -92,22 +93,22 @@ export default function TableDocument() {
                 <tbody>
                     {
                         documentos.map(documento=>(
-                                                        <tr>
-                                                            <td className="p-3 text-start">
-                                                                01/12/2023
+                                                        <tr key={documento.id} className=' border-b border-[#E5E7EB]' >
+                                                            <td className="p-3">
+                                                                {documento.created_at}
                                                             </td>
                                                             
-                                                            <td className="p-3 justify-start"> 
+                                                            <td className="p-3"> 
                                                                 <FontAwesomeIcon className={`w-8 h-8 ${obtenerColorIcono(adivinarFormato(documento.document))}`}
                                                                     icon={adivinarFormato(documento.document)} 
                                                                 /> 
                                                             </td>
                                                             
-                                                            <td className="p-3 font-semibold text-start">
+                                                            <td className="p-3 font-semibold">
                                                                 {documento.title}
                                                             </td>
                                                             
-                                                            <td className="p-3 text-start">
+                                                            <td className="p-3">
                                                                 {documento.description}
                                                                 
                                                             </td>
@@ -116,7 +117,7 @@ export default function TableDocument() {
                                                                 <FontAwesomeIcon 
                                                                     onClick={()=>download(documento.document)}
                                                                     icon={faDownload} 
-                                                                    className="w-8 h-8 cursor-pointer text-turquezapb"
+                                                                    className="w-8 h-8 cursor-pointer text-[#3B82F6] hover:text-[#1D4ED8]"
                                                                 />
                                                             </td>
                                                         </tr>

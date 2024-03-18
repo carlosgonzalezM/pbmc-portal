@@ -12,19 +12,19 @@ export default function Birthday() {
   return (
     <section className="flex justify-between ">
         <section className="w-1/3">
-            <div className=" w-full bg-white py-2 px-20 sm:py-16">
-                <ul className=" flex flex-col" >
+            <div className=" w-full bg-[#FFFFF] py-2 px-20 sm:py-16">
+                <ul className=" flex flex-col justify-items-start text-left" >
                   {
                     cumpleaños.map(cumplea=>(
-                      <li className="flex justify-center mb-3 " 
+                      <li className="flex justify-start items-start text-left mb-3 " 
                       key={cumplea.id}
                   >                              
-                      <p className=" text-magentapb font-bold text-lg mr-4">
+                      <p className=" text-magentapb font-bold text-lg mr-4 text-left">
                           {cumplea.date_birthday}
                       </p>
 
-                      <p className=" font-semibold text-base">
-                          {cumplea.first_name}
+                      <p className=" font-semibold text-base text-left">
+                          {cumplea.full_name}
                       </p>
                   </li>
                     )) 
@@ -35,7 +35,7 @@ export default function Birthday() {
         </section>
 
         <section className="w-2/3">
-            <div className="bg-white w-full py-2 sm:py-16">
+            <div className="bg-[#FFFFFF] w-full py-2 sm:py-16">
                 <div className="mx-auto grid w-full gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
                    <ul role="list" 
                        className="grid gap-x-10 gap-y-20 w-full sm:grid-cols-3 sm:gap-y-16 xl:col-span-4"
@@ -49,7 +49,7 @@ export default function Birthday() {
                           />
                           <div>
                             <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
-                              {cumplea.last_name}
+                              {cumplea.full_name}
                             </h3>
                             <p className="text-sm font-semibold leading-6 text-indigo-600">
                               {cumplea.area}

@@ -142,8 +142,7 @@ class BirthdayController extends Controller
                 'id' => $birthday->id,
                 'user_id' => $birthday->user_id,
                 'image' => $birthday->image,
-                'first_name' => $birthday->first_name,
-                'last_name' => $birthday->last_name,
+                'full_name' => $birthday->first_name . ' ' . $birthday->last_name,
                 'area' => $birthday->area,
                 'date_birthday' => Carbon::parse($birthday->date_birthday)->day, // Solo el día del cumpleaños
             ];

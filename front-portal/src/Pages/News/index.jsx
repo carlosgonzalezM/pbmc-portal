@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import clienteAxios from '../../Config/axios';
 import Footer from '../../Components/Footer';
+import NavbarLogin from '../../Components/NabvarLogin';
 
 export default function News() {
   let {id} = useParams();
@@ -26,6 +27,7 @@ export default function News() {
 
   return (
     <>
+    <NavbarLogin/>
     
     <article className='w-full flex flex-col items-center'>
       <div className='w-[80%]' >

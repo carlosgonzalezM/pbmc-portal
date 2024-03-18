@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,7 +22,8 @@ class DocumentResource extends JsonResource
             'user_id' => $this->user_id,
             'title' => $this->title,
             'description' => $this->description,
-            'document' => $this->document
+            'document' => $this->document,
+            'created_at' => Carbon::parse($this->created_at)->toDateString(),
         ];
     }
 }
