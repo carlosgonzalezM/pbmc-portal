@@ -16,7 +16,7 @@ export default function NavbarLogin() {
             <Link to="/home" >
             <div className='flex items-center justify-between w-56 mx-6'>
                     <FontAwesomeIcon icon= {faArrowLeftLong}/>
-                    <h3 className=' text-turquezapb font-medium'>
+                    <h3 className=' text-turquezapb font-medium font-serif'>
                         Regresar a Pagina principal
                     </h3>
             </div>

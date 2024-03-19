@@ -103,13 +103,13 @@ export default function ReportForm() {
     return (
     <>
       { noticia.id && 
-        <h1 className=' m-0 text-2xl font-semibold' >
+        <h1 className=' m-0 text-2xl font-semibold font-serif' >
           Actualizar Noticia: {noticia.title}
         </h1> 
       }
       {
         !noticia.id &&
-        <h1 className=' m-0 text-2xl font-semibold' >
+        <h1 className=' m-0 text-2xl font-semibold font-serif' >
           Agregar Noticia
         </h1>
       }
@@ -117,7 +117,7 @@ export default function ReportForm() {
         className='rounded-lg mb-4 mt-2 bg-[#FFF] shadow-md p-6 animate-faceInDown'  >
         {
           loading && (
-            <div className=' text-center' >
+            <div className=' text-center font-serif' >
               Cargando Noticia...
             </div>
           )
@@ -134,14 +134,14 @@ export default function ReportForm() {
           !loading && (
             <form onSubmit={onSubmit}>
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] font-serif w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
                 value={noticia.title} 
                 onChange={ev => SetNoticia({...noticia, title: ev.target.value})} 
                 placeholder='Titulo'
                 name="title"
               />
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] w-full border-2 font-serif border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
                 value={noticia.description} 
                 onChange={ev => SetNoticia({...noticia, description: ev.target.value})} 
                 placeholder='descripción'
@@ -160,7 +160,7 @@ export default function ReportForm() {
                 placeholder='Documento'
               />
               <button 
-                className="rounded-lg border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]">
+                className="rounded-lg border font-serif border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]">
                 Guardar
               </button>
             </form>

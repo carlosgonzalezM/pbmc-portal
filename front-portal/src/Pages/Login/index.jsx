@@ -67,7 +67,7 @@ export default function Login() {
                                 alt="perfect body"
                             />
 
-                            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-turquezapb">
+                            <h2 className="mt-10 text-center text-2xl font-semibold font-serif leading-9 tracking-tight text-turquezapb">
                                 Ingresa con tu cuenta
                             </h2>
                         </div>
@@ -79,7 +79,7 @@ export default function Login() {
                                 <div>
                                     <div className='flex justify-center items-center'>
                                         <label htmlFor="email" 
-                                            className="block text-sm font-medium leading-6 text-turquezapb"
+                                            className="block text-sm font-medium leading-6 text-turquezapb font-serif"
                                         >
                                             Email
                                         </label>
@@ -101,7 +101,7 @@ export default function Login() {
                                 <div>
                                     <div className="flex items-center justify-center">
                                         <label htmlFor="password" 
-                                            className="block text-sm font-medium leading-6 text-turquezapb"
+                                            className="block text-sm font-medium font-serif leading-6 text-turquezapb"
                                         >
                                             Password
                                         </label>
@@ -123,7 +123,7 @@ export default function Login() {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="flex w-full justify-center rounded-md bg-magentapb px-3 py-1.5 text-sm font-semibold leading-6 text-[#ffffff] shadow-lg shadow-magentapb hover:bg-turquipb focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                        className="flex w-full justify-center rounded-md bg-magentapb px-3 py-1.5 text-sm font-semibold leading-6 text-[#ffffff] font-serif shadow-lg hover:shadow-magentapb focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                     >
                                         Ingresar
                                     </button>
@@ -132,7 +132,7 @@ export default function Login() {
                         
                             <Link to='/signup'>
                                 <button
-                                    className="flex w-full mt-5 justify-center rounded-md bg-turquezapb px-3 py-1.5 text-sm font-semibold leading-6 text-[#ffffff] shadow-lg shadow-turqueza hover:bg-turquezapb focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    className="flex w-full mt-5 justify-center rounded-md bg-turquezapb px-3 py-1.5 text-sm font-semibold leading-6 text-[#ffffff] shadow-lg flex-wrap font-serif shadow-turqueza hover:shadow-turquezapb focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Registrarse
                                 </button>

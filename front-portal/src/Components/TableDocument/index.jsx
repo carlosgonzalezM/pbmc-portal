@@ -34,11 +34,11 @@ export default function TableDocument() {
     function obtenerColorIcono(tipo){
         switch(tipo){
             case faFilePdf:
-                return 'text-[#EF4444]'
+                return 'text-[#AC223A]'
             case faFileWord:
-                return 'text-[#3B82F6]'
+                return 'text-[#1D4AB1]'
             case faFileExcel:
-                return 'text-[#10B981]'
+                return 'text-[#176F28]'
         }
     }
 
@@ -63,7 +63,7 @@ export default function TableDocument() {
   return (
     <section className="w-full flex justify-center pb-20">
         <div className="w-4/5  rounded-lg bg-[#fff] shadow-md p-6">
-            <h1 className=" font-semibold text-lg mb-6" >
+            <h1 className=" font-semibold text-lg mb-6 font-serif text-[#002351]" >
                 Encuentre aqui los documentos
             </h1>
             
@@ -71,19 +71,19 @@ export default function TableDocument() {
                 <thead>
                     <tr className="bg-[#E5E7EB]">
 
-                        <th className="p-3 text-left">
+                        <th className="p-3 text-left text-[#001943] font-serif ">
                             Fecha de Publicacion
                         </th>
-                        <th className="p-3 text-left">
+                        <th className="p-3 text-left text-[#001943] font-serif ">
                             Tipo
                         </th>
-                        <th className="p-3 text-left ">
+                        <th className="p-3 text-left text-[#001943] font-serif ">
                             Titulo
                         </th>
-                        <th className="p-3 text-left">
+                        <th className="p-3 text-left text-[#001943] font-serif ">
                             Descripcion
                         </th>
-                        <th className="p-3 text-left">
+                        <th className="p-3 text-left text-[#001943] font-serif ">
                             Ver/Descargar 
                         </th>
                     </tr>
@@ -94,7 +94,7 @@ export default function TableDocument() {
                     {
                         documentos.map(documento=>(
                                                         <tr key={documento.id} className=' border-b border-[#E5E7EB]' >
-                                                            <td className="p-3">
+                                                            <td className="p-3 font-serif text-[#004278] text-xl">
                                                                 {documento.created_at}
                                                             </td>
                                                             
@@ -104,11 +104,11 @@ export default function TableDocument() {
                                                                 /> 
                                                             </td>
                                                             
-                                                            <td className="p-3 font-semibold">
+                                                            <td className="p-3 font-semibold text-xl font-serif text-[#002351]">
                                                                 {documento.title}
                                                             </td>
                                                             
-                                                            <td className="p-3">
+                                                            <td className="p-3 font-serif text-lg text-[#004278] ">
                                                                 {documento.description}
                                                                 
                                                             </td>
@@ -117,7 +117,7 @@ export default function TableDocument() {
                                                                 <FontAwesomeIcon 
                                                                     onClick={()=>download(documento.document)}
                                                                     icon={faDownload} 
-                                                                    className="w-8 h-8 cursor-pointer text-[#3B82F6] hover:text-[#1D4ED8]"
+                                                                    className="w-8 h-8 cursor-pointer text-[#004278] hover:text-[#001943]"
                                                                 />
                                                             </td>
                                                         </tr>

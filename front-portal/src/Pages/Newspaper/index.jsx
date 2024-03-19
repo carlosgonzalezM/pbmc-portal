@@ -43,12 +43,12 @@ export default function Newspaper() {
   return (
     <div>
       <div className='flex justify-between items-center' >
-        <h1 className=' m-0 text-2xl font-semibold' >
+        <h1 className=' m-0 text-2xl font-semibold font-serif text-[#001F45]' >
           Noticias
         </h1>
         <Link to="/newspaper/new">
           <button 
-            className='rounded-lg border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]' 
+            className='rounded-lg border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium font-serif text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]' 
           >
             Agregar Noticia
           </button>
@@ -63,12 +63,11 @@ export default function Newspaper() {
         <table className='w-full border-collapse' >
           <thead>
             <tr>
-              <th className='text-left bg-[#E5E7EB] p-2'>Id</th>
-              <th className='text-left bg-[#E5E7EB] p-2'>titulo</th>
-              <th className='text-left bg-[#E5E7EB] p-2' >Descripcion</th>
-              <th className='text-left bg-[#E5E7EB] p-2' >imagen</th>
-              <th className='text-left bg-[#E5E7EB] p-2' >documento</th>
-              <th className='text-left bg-[#E5E7EB] p-2' >Accion</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif '>Id</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif'>titulo</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif' >Descripcion</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif' >imagen</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif' >Accion</th>
             </tr>
           </thead>
 
@@ -76,7 +75,7 @@ export default function Newspaper() {
             loading && 
             <tbody>
               <tr>
-                  <td colSpan="5" className=' text-center p-2'  >
+                  <td colSpan="5" className=' text-center p-2 font-serif'  >
                     Cargando Noticias...
                   </td>    
               </tr>
@@ -88,11 +87,13 @@ export default function Newspaper() {
               {
                 noticias.map(n =>(
                   <tr>
-                    <td className='p-2 border-b border-[#efefef] ' >{n.id}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.title}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.description}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.image}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.document}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif' >{n.id}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif' >{n.title}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif' >{n.description}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif w-20 h-20' >
+                      <img src={`http://127.0.0.1:8000/storage/${n.image}`} alt={n.title} />
+                    </td>
+    
                     
                     <td className='p-2 border-b border-[#efefef] justify-center'>
                       <Link to={'/newspaper/'+ n.id}>

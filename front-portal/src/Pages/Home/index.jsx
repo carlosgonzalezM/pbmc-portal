@@ -23,7 +23,7 @@ export default function Home() {
 
         <div className='flex flex-col items-center mt-20'>
             <div className="w-full">
-                <h1 className='xl:w-[40%] w-full text-4xl font-bold text-turquezapb p-4 text-start xl:border-b-2 xl:border-b-magentapb ml-2'>
+                <h1 className='xl:w-[40%] w-full text-4xl font-bold text-turquezapb p-4 text-start xl:border-b-2 xl:border-b-magentapb ml-2 font-serif'>
                     NOTICIAS PERFECT BODY
                 </h1>
             </div>
@@ -45,7 +45,7 @@ export default function Home() {
         <Banner/>
         
         <div className="w-full">
-            <h1 className='w-[30%] text-start text-3xl font-semibold text-turquezapb mt-10 border-b-2 pb-4  border-b-magentapb' >
+            <h1 className='w-[30%] text-start text-3xl font-semibold font-serif text-turquezapb mt-10 border-b-2 pb-4  border-b-magentapb' >
                 Cumpleaños {fecha} Perfect Body
             </h1>
         </div>

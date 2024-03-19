@@ -12,7 +12,8 @@ export default function News() {
     title: '',
     description: '',
     image: '',
-    document: ''
+    document: '',
+    created_at: ''
   })
 
   useEffect(()=>{
@@ -31,11 +32,13 @@ export default function News() {
     
     <article className='w-full flex flex-col items-center'>
       <div className='w-[80%]' >
-        <h1 className=' w-full h-auto pb-2 my-4 text-4xl' >
+        <h1 className=' w-full h-auto pb-2 my-4 text-4xl font-semibold font-serif' >
           {noticia.title}
         </h1>
+
+        <span>publicado el {noticia.created_at} </span>
         
-        <p className='w-full h-auto mb-3 text-xl' >
+        <p className='w-full h-auto mb-3 text-xl font-medium font-serif' >
           {noticia.description}
         </p>
         

@@ -19,11 +19,11 @@ export default function Birthday() {
                       <li className="flex justify-start items-start text-left mb-3 " 
                       key={cumplea.id}
                   >                              
-                      <p className=" text-magentapb font-bold text-lg mr-4 text-left">
+                      <p className=" text-magentapb font-bold text-xl mr-4 text-left font-serif">
                           {cumplea.date_birthday}
                       </p>
 
-                      <p className=" font-semibold text-base text-left">
+                      <p className=" font-semibold text-2xl text-[#003164] text-left font-serif">
                           {cumplea.full_name}
                       </p>
                   </li>
@@ -44,14 +44,14 @@ export default function Birthday() {
                       cumpleaños.map(cumplea=>(
                         <li key={cumplea.id}>
                         <div className="flex items-center gap-x-6">
-                          <img className="h-16 w-16 rounded-full" 
+                          <img className=" h-32 w-32 rounded-full" 
                             src={`http://127.0.0.1:8000/storage/${cumplea.image}`} alt="" 
                           />
                           <div>
-                            <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
+                            <h3 className=" text-xl font-semibold font-serif leading-7 tracking-tight text-[#003164]">
                               {cumplea.full_name}
                             </h3>
-                            <p className="text-sm font-semibold leading-6 text-indigo-600">
+                            <p className=" text-base font-semibold leading-6 text-[#00568C] font-serif">
                               {cumplea.area}
                             </p>
                           </div>

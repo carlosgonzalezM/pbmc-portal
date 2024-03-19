@@ -51,7 +51,7 @@ export default function Signup() {
                 src="/images/Logo.ico"
                 alt="Your Company"
               />
-              <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-turquezapb">
+              <h2 className="mt-10 text-center text-2xl font-bold font-serif leading-9 tracking-tight text-turquezapb">
                 Crea tu cuenta
               </h2>
             </div>
@@ -64,7 +64,7 @@ export default function Signup() {
                     <div>
                         <div className='flex items-center justify-center' >
                             <label htmlFor="name" 
-                                    className="block text-sm font-medium leading-6 text-turquezapb"
+                                    className="block text-sm font-medium leading-6 font-serif text-turquezapb"
                             >
                                 Nombre Completo
                             </label>
@@ -86,7 +86,7 @@ export default function Signup() {
                     <div>
                         <div className='flex items-center justify-center' >
                             <label htmlFor="user" 
-                            className="block text-sm font-medium leading-6 text-turquezapb"
+                            className="block text-sm font-medium leading-6 text-turquezapb font-serif"
                             >
                             Nombre de Usuario
                             </label>
@@ -108,7 +108,7 @@ export default function Signup() {
                     <div>
                         <div className='flex items-center justify-center' >
                             <label htmlFor="email" 
-                            className="block text-sm font-medium leading-6 text-turquezapb"
+                            className="block text-sm font-medium leading-6 text-turquezapb font-serif "
                             >
                             Correo Electronico
                             </label>
@@ -130,7 +130,7 @@ export default function Signup() {
                     <div>
                         <div className="flex items-center justify-center">
                         <label htmlFor="password" 
-                            className="block text-sm font-medium leading-6 text-turquezapb"
+                            className="block text-sm font-medium leading-6 text-turquezapb font-serif"
                         >
                             Contraseña
                         </label>
@@ -152,7 +152,7 @@ export default function Signup() {
                     <div>
                         <div className="flex items-center justify-center">
                         <label htmlFor="password" 
-                            className="block text-sm font-medium leading-6 text-turquezapb"
+                            className="block text-sm font-medium leading-6 text-turquezapb font-serif "
                         >
                             Confirmar Contraseña
                         </label>
@@ -174,7 +174,7 @@ export default function Signup() {
                     <div>
                     <button
                         type="submit"
-                        className="flex w-full justify-center rounded-md bg-magentapb px-3 py-1.5 text-sm font-semibold leading-6 text-[#ffffff] shadow-lg shadow-violetapb  hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="flex w-full font-serif justify-center rounded-md bg-magentapb px-3 py-1.5 text-sm font-semibold leading-6 text-[#ffffff] shadow-lg shadow-violetapb  hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
                         Crear Cuenta
                     </button>

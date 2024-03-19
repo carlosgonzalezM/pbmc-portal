@@ -16,7 +16,7 @@ export default function NavbarSignup() {
             <Link to="/login" >
             <div className='flex items-center justify-between w-56 mx-6'>
                     <FontAwesomeIcon icon= {faArrowLeftLong}/>
-                    <h3 className=' text-turquezapb font-medium'>
+                    <h3 className=' text-turquezapb font-medium font-serif'>
                         Regresar a Iniciar Sesion
                     </h3>
             </div>
