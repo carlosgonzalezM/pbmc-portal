@@ -43,12 +43,12 @@ export default function Birthdays() {
   return (
     <div>
       <div className='flex justify-between items-center' >
-        <h1 className=' m-0 text-2xl font-semibold' >
+        <h1 className=' m-0 text-4xl font-semibold font-serif text-[#001F45]' >
           Cumpleaños
         </h1>
         <Link to="/birthdays/new">
           <button 
-            className='rounded-lg border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]' 
+            className='rounded-lg font-serif border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]' 
           >
             Agregar Cumpleaños
           </button>
@@ -63,13 +63,13 @@ export default function Birthdays() {
         <table className='w-full border-collapse' >
           <thead>
             <tr>
-              <th className='text-left bg-[#E5E7EB] p-2'>Id</th>
-              <th className='text-left bg-[#E5E7EB] p-2'>Primer Nombre</th>
-              <th className='text-left bg-[#E5E7EB] p-2' >Primer Apellido</th>
-              <th className='text-left bg-[#E5E7EB] p-2' >Area</th>
-              <th className='text-left bg-[#E5E7EB] p-2' >imagen</th>
-              <th className='text-left bg-[#E5E7EB] p-2' >Fecha de Nacimiento</th>
-              <th className='text-left bg-[#E5E7EB] p-2' >Accion</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl'>Id</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl'>Primer Nombre</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl' >Primer Apellido</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl' >Area</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl' >imagen</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl' >Fecha de Nacimiento</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl' >Accion</th>
             </tr>
           </thead>
 
@@ -77,7 +77,7 @@ export default function Birthdays() {
             loading && 
             <tbody>
               <tr>
-                  <td colSpan="5" className=' text-center p-2'  >
+                  <td colSpan="5" className=' text-center p-2 font-serif'  >
                     Cargando Cumpleaños...
                   </td>    
               </tr>
@@ -89,21 +89,28 @@ export default function Birthdays() {
               {
                 cumpleaños.map(n =>(
                   <tr>
-                    <td className='p-2 border-b border-[#efefef] ' >{n.id}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.first_name}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.last_name}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.area}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.image}</td>
-                    <td className='p-2 border-b border-[#efefef]' >{n.date_birthday}</td>    
+                    <td className='p-2 border-b border-[#efefef]  font-serif text-lg ' >{n.id}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif text-lg' >{n.first_name}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif  text-lg' >{n.last_name}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif text-lg' >{n.area}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif text-lg w-24 h-24 rounded-full' >
+                      <img
+                        className=' rounded-full' 
+                        src={`http://127.0.0.1:8000/storage/${n.image}`}
+                        alt={n.image}
+                      />
+                    
+                    </td>
+                    <td className='p-2 border-b border-[#efefef] font-serif text-lg' >{n.date_birthday}</td>    
                     <td className='p-2 border-b border-[#efefef] justify-center'>
                       <Link to={'/birthdays/'+ n.id}>
                         <button> 
-                          <FontAwesomeIcon icon={faPenToSquare}/> 
+                          <FontAwesomeIcon className='w-5 h-5' icon={faPenToSquare}/> 
                         </button>
                       </Link>
                       &nbsp; &nbsp;
                       <button onClick={ev => onDelete(n)} >
-                        <FontAwesomeIcon icon={faTrashCan} className=' text-[#ff0000]'/>
+                        <FontAwesomeIcon icon={faTrashCan} className=' text-[#ff0000] w-5 h-5'/>
                       </button>
                     </td>
                   </tr>

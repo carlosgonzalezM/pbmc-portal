@@ -99,13 +99,13 @@ export default function BirthdayForm() {
     return (
     <>
       { cumpleaños.id && 
-        <h1 className=' m-0 text-2xl font-semibold' >
+        <h1 className=' m-0 text-4xl font-semibold font-serif text-[#001F45]' >
           Actualizar Cumpleaños: {cumpleaños.first_name}
         </h1> 
       }
       {
         !cumpleaños.id &&
-        <h1 className=' m-0 text-2xl font-semibold' >
+        <h1 className=' m-0 text-4xl font-semibold font-serif text-[#001F45]' >
           Agregar Cumpleaños
         </h1>
       }
@@ -113,7 +113,7 @@ export default function BirthdayForm() {
         className='rounded-lg mb-4 mt-2 bg-[#FFF] shadow-md p-6 animate-faceInDown'  >
         {
           loading && (
-            <div className=' text-center' >
+            <div className=' text-center text-[#001F45]' >
               Cargando cumpleaños...
             </div>
           )
@@ -131,28 +131,28 @@ export default function BirthdayForm() {
             <form onSubmit={onSubmit}>
 
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] w-full font-serif text-xl border-2 border-[#e6e6e6] mb-4 p-4 box-border transition-all duration-300 ease-in-out" 
                 value={cumpleaños.first_name} 
                 onChange={ev => SetCumpleaños({...cumpleaños, first_name: ev.target.value})} 
                 placeholder='primer nombre'
               />
 
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] w-full border-2 font-serif text-xl border-[#e6e6e6] mb-4 p-4 box-border transition-all duration-300 ease-in-out" 
                 value={cumpleaños.last_name} 
                 onChange={ev => SetCumpleaños({...cumpleaños, last_name: ev.target.value})} 
                 placeholder='primer apellido'
               />
 
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-xl font-serif transition-all duration-300 ease-in-out" 
                 value={cumpleaños.area} 
                 onChange={ev => SetCumpleaños({...cumpleaños, area: ev.target.value})} 
                 placeholder='area de trabajo'
               />
 
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-xl font-serif transition-all duration-300 ease-in-out" 
                 type='date'
                 value={cumpleaños.date_birthday} 
                 onChange={ev => SetCumpleaños({...cumpleaños, date_birthday: ev.target.value})} 
@@ -167,7 +167,7 @@ export default function BirthdayForm() {
               />
 
               <button 
-                className="rounded-lg border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]">
+                className="rounded-lg font-serif border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]">
                 Guardar
               </button>
 

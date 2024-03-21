@@ -100,13 +100,13 @@ export default function DocumentForm() {
     return (
     <>
       {documento.id && 
-        <h1 className=' m-0 text-2xl font-semibold' >
+        <h1 className=' m-0 text-4xl font-semibold font-serif text-[#001F45]' >
           Actualizar Documento: {documento.title}
         </h1> 
       }
       {
         !documento.id &&
-        <h1 className=' m-0 text-2xl font-semibold' >
+        <h1 className=' m-0 text-4xl font-semibold font-serif text-[#001F45]' >
           Agregar Documento
         </h1>
       }
@@ -131,26 +131,26 @@ export default function DocumentForm() {
           !loading && (
             <form onSubmit={onSubmit}>
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] font-serif text-xl w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border transition-all duration-300 ease-in-out" 
                 value={documento.title} 
                 onChange={ev => SetDocumento({...documento, title: ev.target.value})} 
                 placeholder='Titulo'
               />
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] w-full font-serif text-xl border-2 border-[#e6e6e6] mb-4 p-4 box-border transition-all duration-300 ease-in-out" 
                 value={documento.description} 
                 onChange={ev => SetDocumento({...documento, description: ev.target.value})} 
                 placeholder='descripción'
               />
               
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] w-full font-serif text-xl border-2 border-[#e6e6e6] mb-4 p-4 box-border transition-all duration-300 ease-in-out" 
                 type='file' 
                 onChange={handleDocumentChange} 
                 placeholder='Documento'
               />
               <button 
-                className="rounded-lg border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center text-sm font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]">
+                className="rounded-lg text-xl border border-[#10B981] bg-[#10B981] px-5 py-2.5 text-center font-serif font-medium text-[#ffffff] shadow-sm transition-all hover:border-[#047857] hover:bg-[#047857] focus:ring focus:ring-[#A7F3D0] disabled:cursor-not-allowed disabled:border-[#6EE7B7] disabled:bg-[#6EE7B7]">
                 Guardar
               </button>
             </form>

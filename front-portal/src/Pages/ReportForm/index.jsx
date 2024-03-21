@@ -103,13 +103,13 @@ export default function ReportForm() {
     return (
     <>
       { noticia.id && 
-        <h1 className=' m-0 text-2xl font-semibold font-serif' >
+        <h1 className=' m-0 text-4xl font-semibold font-serif' >
           Actualizar Noticia: {noticia.title}
         </h1> 
       }
       {
         !noticia.id &&
-        <h1 className=' m-0 text-2xl font-semibold font-serif' >
+        <h1 className=' m-0 text-4xl font-semibold font-serif' >
           Agregar Noticia
         </h1>
       }
@@ -134,14 +134,14 @@ export default function ReportForm() {
           !loading && (
             <form onSubmit={onSubmit}>
               <input 
-                className="outline-none bg-[#FFFFFF] font-serif w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] font-serif w-full border-2 border-[#e6e6e6] mb-4 p-4 box-border text-2xl transition-all duration-300 ease-in-out" 
                 value={noticia.title} 
                 onChange={ev => SetNoticia({...noticia, title: ev.target.value})} 
                 placeholder='Titulo'
                 name="title"
               />
               <input 
-                className="outline-none bg-[#FFFFFF] w-full border-2 font-serif border-[#e6e6e6] mb-4 p-4 box-border text-base transition-all duration-300 ease-in-out" 
+                className="outline-none bg-[#FFFFFF] w-full border-2 font-serif text-xl border-[#e6e6e6] mb-4 p-4 box-border transition-all duration-300 ease-in-out" 
                 value={noticia.description} 
                 onChange={ev => SetNoticia({...noticia, description: ev.target.value})} 
                 placeholder='descripción'

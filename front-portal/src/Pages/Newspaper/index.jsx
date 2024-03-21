@@ -43,7 +43,7 @@ export default function Newspaper() {
   return (
     <div>
       <div className='flex justify-between items-center' >
-        <h1 className=' m-0 text-2xl font-semibold font-serif text-[#001F45]' >
+        <h1 className=' m-0 text-4xl font-semibold font-serif text-[#001F45]' >
           Noticias
         </h1>
         <Link to="/newspaper/new">
@@ -63,11 +63,11 @@ export default function Newspaper() {
         <table className='w-full border-collapse' >
           <thead>
             <tr>
-              <th className='text-left bg-[#E5E7EB] p-2 font-serif '>Id</th>
-              <th className='text-left bg-[#E5E7EB] p-2 font-serif'>titulo</th>
-              <th className='text-left bg-[#E5E7EB] p-2 font-serif' >Descripcion</th>
-              <th className='text-left bg-[#E5E7EB] p-2 font-serif' >imagen</th>
-              <th className='text-left bg-[#E5E7EB] p-2 font-serif' >Accion</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl '>Id</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl'>titulo</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl' >Descripcion</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl' >imagen</th>
+              <th className='text-left bg-[#E5E7EB] p-2 font-serif text-xl' >Accion</th>
             </tr>
           </thead>
 
@@ -87,23 +87,23 @@ export default function Newspaper() {
               {
                 noticias.map(n =>(
                   <tr>
-                    <td className='p-2 border-b border-[#efefef] font-serif' >{n.id}</td>
-                    <td className='p-2 border-b border-[#efefef] font-serif' >{n.title}</td>
-                    <td className='p-2 border-b border-[#efefef] font-serif' >{n.description}</td>
-                    <td className='p-2 border-b border-[#efefef] font-serif w-20 h-20' >
+                    <td className='p-2 border-b border-[#efefef] font-serif text-lg' >{n.id}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif text-lg' >{n.title}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif text-lg' >{n.description}</td>
+                    <td className='p-2 border-b border-[#efefef] font-serif w-24 h-24' >
                       <img src={`http://127.0.0.1:8000/storage/${n.image}`} alt={n.title} />
                     </td>
     
-                    
+            
                     <td className='p-2 border-b border-[#efefef] justify-center'>
                       <Link to={'/newspaper/'+ n.id}>
                         <button> 
-                          <FontAwesomeIcon icon={faPenToSquare}/> 
+                          <FontAwesomeIcon className=' w-5 h-5' icon={faPenToSquare}/> 
                         </button>
                       </Link>
                       &nbsp; &nbsp;
                       <button onClick={ev => onDelete(n)} >
-                        <FontAwesomeIcon icon={faTrashCan} className=' text-[#ff0000]'/>
+                        <FontAwesomeIcon icon={faTrashCan} className=' text-[#ff0000] h-5 w-5 '/>
                       </button>
                     </td>
                   </tr>

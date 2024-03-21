@@ -28,7 +28,7 @@ export default function DefaultLayout() {
     <div className='h-screen flex w-full'>
         <sidebar className="flex flex-col justify-between gap-8 bg-gray-100 min-h-screen max-h-screen w-60 p-4 border-r-4 border-magentapb bg-turquezapb">
             <section>
-                <div className="logo flex items-center gap-2 mb-2">
+                <div className="logo w-auto h-32 flex items-center gap-2 mb-2">
                   <img
                       src="/images/Logo-Perfect-body-blanco.png"
                       className="w-full h-full bg-indigo-600 p-2 rounded-xl"
@@ -75,7 +75,7 @@ export default function DefaultLayout() {
                       icon={ faNewspaper}
                       className='h-5 w-5 text-[#ffffff]'
                     />
-                    <span className='text-[#ffffff]'>
+                    <span className='text-[#ffffff] font-serif font-medium text-xl'>
                       Noticias
                     </span>
                   </Link>
@@ -90,7 +90,7 @@ export default function DefaultLayout() {
                       icon={faCakeCandles}
                       className='h-5 w-5 text-[#ffffff]'
                     />
-                    <span className='text-[#ffffff]'>
+                    <span className='text-[#ffffff] font-serif font-medium text-xl'>
                       Cumpleaños
                     </span>
                   </Link>
@@ -105,7 +105,7 @@ export default function DefaultLayout() {
                       icon={faFile}
                       className='h-5 w-5 text-[#ffffff]'
                     />
-                    <span className='text-[#ffffff]'>
+                    <span className='text-[#ffffff] font-serif font-medium text-xl'>
                       Documentos
                     </span>
                   </Link>
@@ -140,7 +140,7 @@ export default function DefaultLayout() {
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    <span className='text-[#ffffff]'>
+                    <span className='text-[#ffffff] font-serif font-medium text-xl'>
                       Ajustes
                     </span>
                   </a>
@@ -165,7 +165,7 @@ export default function DefaultLayout() {
                         d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
                       />
                     </svg>
-                    <span className='text-[#ffffff]'>
+                    <span className='text-[#ffffff] font-serif font-medium text-xl'>
                       Ayuda
                     </span>
                   </a>
@@ -180,7 +180,7 @@ export default function DefaultLayout() {
                       icon={faArrowRightFromBracket}
                       className='h-5 w-5 text-[#ffffff]'
                     />
-                    <span className='text-[#ffffff]'>
+                    <span className='text-[#ffffff] font-serif font-medium text-xl'>
                       Logout
                     </span>
                   </a>
@@ -189,7 +189,7 @@ export default function DefaultLayout() {
 
               <div className="flex items-center gap-4 pt-4 border-t border-[#ffffff]">
                 <div>
-                  <h3 className="font-bold text-gray-900 text-[#ffffff]">
+                  <h3 className=" text-gray-900 text-[#ffffff] font-serif font-medium text-2xl">
                     {user.name}
                   </h3>
                 </div>
