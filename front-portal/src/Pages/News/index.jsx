@@ -20,6 +20,7 @@ export default function News() {
     clienteAxios.get(`/reports/${id}`)
     .then(({data})=>{
         SetNoticia(data)
+        console.log(data)
     })
     .catch(()=>{
       console.log(error);

@@ -22,7 +22,8 @@ class ReportResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'image' => $this->image,
-            'document' => $this->document
+            'document' => $this->document,
+            'created_at' => $this->created_at->format('Y-m-d')
         ];
 
     }

@@ -18,7 +18,7 @@ class ReportController extends Controller
     public function index()
     {
         return ReportResource::collection(
-            Report::query()->orderBy('id','desc')->paginate(10)
+            Report::paginate(3)
         );
     }
 

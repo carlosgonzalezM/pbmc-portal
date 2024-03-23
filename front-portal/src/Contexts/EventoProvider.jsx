@@ -1,5 +1,6 @@
 import {createContext, useEffect, useState } from "react";
 import clienteAxios from "../Config/axios";
+import axios from "axios";
 
 
 const EventoContext = createContext();
@@ -10,6 +11,9 @@ const EventoProvider = ({children}) => {
     const [documentosObtenidos, setDocumentosObtenidos] = useState([]);
     const [cumpleañosObtenidos, setCumpleañosObtenidos] = useState([]);
     const [fechaActual, setFechaActual] = useState([]);
+    const [info, setInfo] = useState([]);
+
+    const endpoint = 'http://127.0.0.1:8000/api/getnews'
 
     const obtenerCumpleaños = async () => {
         try {
@@ -25,9 +29,27 @@ const EventoProvider = ({children}) => {
         try {
             const {data} = await clienteAxios.get('/getnews');
             setNoticiasObtenidas(data.data);
+            setInfo(data.links);
+            console.log(data)
+            console.log(noticiasObtenidas)
+            console.log(info)
         }catch(error){
             console.log(error)
         }
+    }
+
+    const obtenerNoticiaSecundarias = (endpoint) => {
+        clienteAxios.get(endpoint)
+        .then((data)=>{
+            console.log(data.data.data)
+            setNoticiasObtenidas(data.data.data);
+            setInfo(data.data.links);
+            console.log(data.data.links)
+            console.log(data)
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
     }
 
     const obtenerDocumentos = async () => {
@@ -41,10 +63,21 @@ const EventoProvider = ({children}) => {
 
     
     useEffect(()=>{
-        obtenerNoticias();
+        // obtenerNoticias();
         obtenerDocumentos();
         obtenerCumpleaños();
+        obtenerNoticiaSecundarias(endpoint);
     }, []);
+
+    const handleNextPage = () => {
+        obtenerNoticiaSecundarias(info.first);
+        window.scrollTo(0, 0);
+      };
+      
+      const handlePreviousPage = () => {
+        obtenerNoticiaSecundarias(info.last);
+        window.scrollTo(0, 0);
+      };
 
     return (
         <EventoContext.Provider
@@ -56,7 +89,11 @@ const EventoProvider = ({children}) => {
                 cumpleañosObtenidos,
                 setCumpleañosObtenidos,
                 fechaActual,
-                setFechaActual
+                setFechaActual,
+                info,
+                setInfo,
+                handleNextPage,
+                handlePreviousPage
             }}
         >
             {children}

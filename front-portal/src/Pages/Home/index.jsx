@@ -10,7 +10,7 @@ import Navbar from '../../Components/Navbar'
 
 export default function Home() {
 
-    const {noticiasObtenidas, cumpleañosObtenidos, fechaActual } = useEvento();
+    const {noticiasObtenidas, cumpleañosObtenidos, fechaActual, info,handleNextPage, handlePreviousPage } = useEvento();
 
     const noticias = noticiasObtenidas;
     const cumpleaños = cumpleañosObtenidos;
@@ -40,6 +40,28 @@ export default function Home() {
                     )
                 }
             </div>
+
+            <nav>
+                <ul>
+                    {info.last ? (
+                        <li>
+                            <button onClick={handlePreviousPage} >
+                                previos
+                            </button>
+                        </li>
+                    ):null}
+                </ul>
+                <ul>
+                    {info.first ? (
+                        <li>
+                            <button onClick={handleNextPage} >
+                                next
+                            </button>
+                        </li>
+                    ):null}
+                </ul>
+            </nav>
+
         </div>
 
         <Banner/>
