@@ -7,13 +7,14 @@ import Footer from '../../Components/Footer'
 import useEvento from '../../Hooks/useEvento'
 import TableDocument from '../../Components/TableDocument'
 import Navbar from '../../Components/Navbar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
 
-    const {noticiasObtenidas, cumpleañosObtenidos, fechaActual, info,handleNextPage, handlePreviousPage } = useEvento();
+    const {noticiasObtenidas, fechaActual, info,handleNextPage, handlePreviousPage, paginaActual, paginaFinal } = useEvento();
 
     const noticias = noticiasObtenidas;
-    const cumpleaños = cumpleañosObtenidos;
     const fecha = fechaActual;
 
   return (
@@ -41,21 +42,24 @@ export default function Home() {
                 }
             </div>
 
-            <nav>
-                <ul>
+            <nav className=' flex w-[15%] justify-around mb-4 items-center'>
+                <ul  >
                     {info.last ? (
                         <li>
-                            <button onClick={handlePreviousPage} >
-                                previos
+                            <button className=' rounded-full bg-turquezapb w-20 h-10 text-[#FFFFFF]' onClick={handleNextPage} >
+                                <FontAwesomeIcon icon={faArrowLeft}/>
                             </button>
                         </li>
                     ):null}
                 </ul>
                 <ul>
+                    <p>Pagina <span className=' font-bold'> {paginaActual} </span> de <span className=' font-bold' > {paginaFinal} </span> </p>
+                </ul>
+                <ul>
                     {info.first ? (
                         <li>
-                            <button onClick={handleNextPage} >
-                                next
+                            <button className='rounded-full bg-turquezapb w-20 h-10 text-[#FFFFFF]' onClick={handlePreviousPage} >
+                                <FontAwesomeIcon icon={faArrowRight}/>
                             </button>
                         </li>
                     ):null}

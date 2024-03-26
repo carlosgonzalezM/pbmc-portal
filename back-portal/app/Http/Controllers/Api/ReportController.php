@@ -18,12 +18,22 @@ class ReportController extends Controller
     public function index()
     {
         return ReportResource::collection(
-            Report::paginate(3)
+            Report::all()
         );
     }
 
     public function getNews()
     {
+        return ReportResource::collection(
+            Report::paginate(3)
+        );
+    }
+
+    public function getNewsFeatured()
+    {
+        return ReportResource::collection(
+            Report::all()
+        );
     }
 
     /**

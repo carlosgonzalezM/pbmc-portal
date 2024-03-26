@@ -12,6 +12,9 @@ const EventoProvider = ({children}) => {
     const [cumpleañosObtenidos, setCumpleañosObtenidos] = useState([]);
     const [fechaActual, setFechaActual] = useState([]);
     const [info, setInfo] = useState([]);
+    const [paginaActual, setPaginaActual] = useState([]);
+    const [paginaFinal, setPaginaFinal] = useState([]);
+    const [noticiasImportantesObtenidas, setNoticiasImportantesObtenidas] = useState([]);
 
     const endpoint = 'http://127.0.0.1:8000/api/getnews'
 
@@ -27,12 +30,8 @@ const EventoProvider = ({children}) => {
 
     const obtenerNoticias = async () => {
         try {
-            const {data} = await clienteAxios.get('/getnews');
-            setNoticiasObtenidas(data.data);
-            setInfo(data.links);
-            console.log(data)
-            console.log(noticiasObtenidas)
-            console.log(info)
+            const {data} = await clienteAxios.get('/getnewsfeatured');
+            setNoticiasImportantesObtenidas(data.data);
         }catch(error){
             console.log(error)
         }
@@ -41,11 +40,11 @@ const EventoProvider = ({children}) => {
     const obtenerNoticiaSecundarias = (endpoint) => {
         clienteAxios.get(endpoint)
         .then((data)=>{
-            console.log(data.data.data)
             setNoticiasObtenidas(data.data.data);
             setInfo(data.data.links);
-            console.log(data.data.links)
-            console.log(data)
+            setPaginaActual(data.data.meta.current_page)
+            setPaginaFinal(data.data.meta.last_page)
+           
         })
         .catch((error)=>{
             console.log(error)
@@ -67,6 +66,7 @@ const EventoProvider = ({children}) => {
         obtenerDocumentos();
         obtenerCumpleaños();
         obtenerNoticiaSecundarias(endpoint);
+        obtenerNoticias();
     }, []);
 
     const handleNextPage = () => {
@@ -93,7 +93,11 @@ const EventoProvider = ({children}) => {
                 info,
                 setInfo,
                 handleNextPage,
-                handlePreviousPage
+                handlePreviousPage,
+                paginaActual,
+                paginaFinal,
+                noticiasImportantesObtenidas,
+                setNoticiasImportantesObtenidas
             }}
         >
             {children}

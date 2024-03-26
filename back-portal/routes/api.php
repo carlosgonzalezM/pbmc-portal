@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BirthdayController;
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\ReportController;
+use App\Models\Report;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,11 +27,13 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('/documents', DocumentController::class);
     Route::apiResource('/birthdays', BirthdayController::class);
 });
+
 Route::apiResource('/reports', ReportController::class);
 
+Route::get('/getnewsfeatured', [ReportController::class, 'getNewsFeatured']);
 
 Route::get('/getdocuments', [DocumentController::class, 'index']);
-Route::get('/getnews', [ReportController::class, 'index']);
+Route::get('/getnews', [ReportController::class, 'getNews']);
 Route::get('/getbirthdays', [BirthdayController::class, 'getBirthdayMonth']);
 
 
