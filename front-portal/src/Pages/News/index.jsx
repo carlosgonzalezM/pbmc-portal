@@ -17,7 +17,7 @@ export default function News() {
   })
 
   useEffect(()=>{
-    clienteAxios.get(`/reports/${id}`)
+    clienteAxios.get(`/getreports/${id}`)
     .then(({data})=>{
         SetNoticia(data)
         console.log(data)

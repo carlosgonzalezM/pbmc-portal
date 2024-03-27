@@ -17,8 +17,11 @@ class ReportController extends Controller
      */
     public function index()
     {
+
+        $user_id = auth()->id();
+
         return ReportResource::collection(
-            Report::all()
+            Report::where('user_id', $user_id)->get()
         );
     }
 
@@ -34,6 +37,10 @@ class ReportController extends Controller
         return ReportResource::collection(
             Report::all()
         );
+    }
+
+    public function showNews(Report $report){
+        return new ReportResource($report);
     }
 
     /**
