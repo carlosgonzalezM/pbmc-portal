@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BirthdayController;
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\ReportController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +32,7 @@ Route::middleware('auth:sanctum')->group(function(){
 
 });
 
-
+Route::apiResource('/users', UserController::class);
 
 
 //rutas para crear y registrar usuarios para acceder a la aplicacion

@@ -12,7 +12,7 @@ export default function Signup() {
     const passwordRef = useRef();
     const passwordConfirmationRef = useRef();
   
-    const {setUser, setToken} = useStateContext()
+    const {setUser, setToken, setRol} = useStateContext()
   
     const [errors, setErrors] = useState(null)
     
@@ -31,6 +31,7 @@ export default function Signup() {
         .then(({data})=>{
             setUser(data.user)
             setToken(data.token)
+            setRol(data.roles.name)
         })
         .catch(err => {
             const response = err.response;

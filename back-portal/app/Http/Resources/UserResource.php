@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,6 +21,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'user_name' => $this->user_name,
             'email' => $this->email,
+            'rol' => $this->roles->pluck('name')
         ];
     }
 }

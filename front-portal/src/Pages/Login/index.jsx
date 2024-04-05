@@ -11,7 +11,7 @@ export default function Login() {
     const passwordRef = createRef();
 
     const [errores, setErrores] = useState([]);
-    const {setUser, setToken} = useStateContext()
+    const {setUser, setToken, setRol} = useStateContext()
 
     // const {login} =  useAuth({
     //     middleware: 'guest',
@@ -32,6 +32,7 @@ export default function Login() {
           .then(({data})=>{
             setUser(data.user)
             setToken(data.token)
+            setRol(data.roles.name)
           })
           .catch(err=>{
             const response = err.response;

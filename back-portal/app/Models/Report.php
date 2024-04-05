@@ -16,7 +16,10 @@ class Report extends Model
         'description',
         'image',
         'document',
+        'paragraphs'
     ];
+
+
 
     public function user(){
         return $this->belongsTo(User::class);

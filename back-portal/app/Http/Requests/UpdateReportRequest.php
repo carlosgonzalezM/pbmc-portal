@@ -25,7 +25,8 @@ class UpdateReportRequest extends FormRequest
             'title' => ['string'],
             'description' => ['string'],
             'image' => ['mimes:png,jpg, gif, svg'],
-            'document' => ['mimes:pdf, doc, docx']
+            'document' => ['mimes:pdf, doc, docx'],
+            'paragraphs' => ['string'],
         ];
     }
 

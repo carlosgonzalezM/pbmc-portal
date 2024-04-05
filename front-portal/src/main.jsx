@@ -5,6 +5,7 @@ import { RouterProvider } from 'react-router-dom'
 import router from './router.jsx'
 import { ContextProvider } from './Contexts/ContextProvider.jsx'
 import { EventoProvider } from './Contexts/EventoProvider.jsx'
+//import {routerV2} from './routerV2.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -23,6 +23,7 @@ class ReportResource extends JsonResource
             'description' => $this->description,
             'image' => $this->image,
             'document' => $this->document,
+            'paragraphs' => $this->paragraphs, // Agregar los párrafos
             'created_at' => $this->created_at->format('Y-m-d')
         ];
 

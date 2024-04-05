@@ -13,6 +13,7 @@ import Birthdays from './Pages/Birthdays'
 import BirthdayForm from './Pages/BirthdayForm'
 import News from './Pages/News'
 import Users from './Pages/Users'
+import AdminLayout from './Layouts/AdminLayout'
 
 const  router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const  router = createBrowserRouter([
         element: <GuestLayout/>,
         children: [
             {
-                index: true,
+                index: '/',
                 element: <Home/>
             },
             {
@@ -45,14 +46,9 @@ const  router = createBrowserRouter([
         ]
     },
     {
-        path: '/',
+        path: '/default',
         element: <DefaultLayout/>,
         children: [
-            // {
-            //     path:'/',
-            //     element:
-            //     <Navigate to="/newspaper"  /> 
-            // },
             {
                 path: 'newspaper',
                 element: <Newspaper/>
@@ -106,17 +102,71 @@ const  router = createBrowserRouter([
                 <BirthdayForm
                     key="birthdayUpdate"
                 />
+            }
+        ]
+    },
+    {
+        path: '/admin',
+        element: <AdminLayout/>,
+        children: [
+            {
+                path: 'newspaper',
+                element: <Newspaper/>
+            },
+            {
+                path: 'newspaper/new',
+                element: 
+                <ReportForm
+                    key="/reportCreate"
+                />
+            },
+            {
+                path: 'newspaper/:id',
+                element: 
+                <ReportForm
+                    key="reportUpdate"
+                />
+            },
+            {
+                path: 'documents',
+                element: <Documents/>
+            },
+            {
+                path: 'documents/new',
+                element: 
+                <DocumentForm
+                    key="documentCreate"
+                />
+            },
+            {
+                path: 'documents/:id',
+                element: 
+                <DocumentForm
+                    key="documentUpdate"
+                />
+            },
+            {
+                path: 'birthdays',
+                element: <Birthdays/>
+            },
+            {
+                path: 'birthdays/new',
+                element: 
+                <BirthdayForm
+                    key="birthdayCreate"
+                />
+            },
+            {
+                path: 'birthdays/:id',
+                element: 
+                <BirthdayForm
+                    key="birthdayUpdate"
+                />
             },
             {
                 path: 'users',
                 element: <Users/>
             },
-            // {
-            //     path: '/dashboard',
-            //     element: <Dashboard/>
-            // },
-            
-
         ]
     }
 ])

@@ -13,7 +13,7 @@ export default function NavbarLogin() {
                 src="../../../images/Logo-Perfect-Body-Medical-Center.png" 
                 alt="logo" />
             </figure>
-            <Link to="/home" >
+            <Link to="/public" >
             <div className='flex items-center justify-between w-56 mx-6'>
                     <FontAwesomeIcon icon= {faArrowLeftLong}/>
                     <h3 className=' text-turquezapb font-medium font-serif'>

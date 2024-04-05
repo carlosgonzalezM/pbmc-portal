@@ -26,7 +26,8 @@ class StoreReportRequest extends FormRequest
                 'title' => ['required', 'string'],
                 'description' => ['required', 'string'],
                 'image' => ['required', 'image'],
-                'document' => ['nullable', 'file', 'mimes:pdf, doc, docx']
+                'document' => ['nullable', 'file', 'mimes:pdf, doc, docx'],
+                'paragraphs' => ['required','string']
             ];
     }
 
@@ -40,6 +41,7 @@ class StoreReportRequest extends FormRequest
             'image.mimes' => 'La imagen debe tener un formato de archivo válido (png, jpg, gif, svg).',
             'document.file' => 'El campo documento debe ser un archivo.',
             'document.mimes' => 'El documento debe tener un formato de archivo válido (pdf, doc, docx).',
+            'paragraphs' => 'el parrafo es obligatorio'
         ];
     }
 }

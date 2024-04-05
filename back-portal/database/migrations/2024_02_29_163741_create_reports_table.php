@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description',1000);
             $table->string('image',500);
             $table->string('document')->nullable();
+            $table->string('paragraphs');
             $table->timestamps();
         });
     }

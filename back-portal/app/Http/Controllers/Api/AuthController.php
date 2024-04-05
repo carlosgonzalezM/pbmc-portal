@@ -8,6 +8,7 @@ use App\Http\Requests\SignupRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 class AuthController extends Controller
 {
@@ -23,8 +24,12 @@ class AuthController extends Controller
         }
 
         //autenticar al usuario
-
         $user = Auth::user();
+
+        //obtener los roles del usuario
+        $user->roles;
+
+
         return [
             'token' => $user->createToken('token')->plainTextToken,
             'user' => $user
@@ -44,6 +49,8 @@ class AuthController extends Controller
              'email' => $data['email'],
              'password' => bcrypt($data['password'])
          ]);
+
+         $user->assignRole('publicer');
 
          //retornar una respuesta
 

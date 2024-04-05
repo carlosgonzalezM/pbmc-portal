@@ -50,6 +50,9 @@ class ReportController extends Controller
     {
         //
         $data = $request->validated();
+
+
+
         $documentName = null;
         $imageName = str::random(32) . '.' . $data['image']->getClientOriginalExtension();
         Storage::disk('public')->put($imageName, file_get_contents($data['image']));
@@ -83,6 +86,7 @@ class ReportController extends Controller
             $data = $request->validated();
             $imageName = $report['image'];
             $documentName = $report['document'];
+
 
             // Si se proporciona una nueva imagen, actualizarla
             if ($request->hasFile('image')) {
